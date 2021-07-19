@@ -1,0 +1,42 @@
+.banner {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: #fff;
+  height: 300px;
+  text-align: center;
+  padding: 30px 50px;
+  background-image: linear-gradient(rgb(34, 42, 42, 0.6), rgb(34, 42, 42, 0.8)),
+    url('../images/banner.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
+.banner > h1 {
+  margin-bottom: 15px;
+  letter-spacing: 1.5px;
+  font-size: 3rem;
+}
+
+.banner > p {
+  margin-bottom: 60px;
+  font-size: 1.2rem;
+}
+
+.banner > form > input {
+  padding: 16px 30px;
+  width: 350px;
+  border: none;
+  border-radius: 30px;
+}
+
+.banner > form > input:focus {
+  outline: none;
+}
+
+.banner > form > input::placeholder {
+  color: #a0a0a0;
+  letter-spacing: 0.4px;
+  font-size: 13px;
+  margin-left: 10px;
+}
