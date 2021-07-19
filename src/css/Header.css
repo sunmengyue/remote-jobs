@@ -1,5 +1,5 @@
 .header {
-  clip-path: polygon(0 0, 100% 0, 100% 76%, 0 100%);
+  clip-path: polygon(0 0, 100% 0, 100% 70%, 0 100%);
 }
 
 .banner {
@@ -23,8 +23,12 @@
 }
 
 .banner > p {
-  margin-bottom: 30px;
+  margin-bottom: 40px;
   font-size: 1.2rem;
+}
+
+.banner form {
+  margin-bottom: 80px;
 }
 
 .banner > form > input {
