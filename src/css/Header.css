@@ -1,3 +1,7 @@
+.header {
+  clip-path: polygon(0 0, 100% 0, 100% 76%, 0 100%);
+}
+
 .banner {
   display: flex;
   flex-direction: column;
@@ -8,18 +12,18 @@
   padding: 30px 50px;
   background-image: linear-gradient(rgb(34, 42, 42, 0.6), rgb(34, 42, 42, 0.8)),
     url('../images/banner.jpg');
-  background-size: cover;
-  background-position: center;
+  background-size: initial;
+  background-position: top;
 }
 
 .banner > h1 {
-  margin-bottom: 15px;
+  margin-bottom: 40px 15px;
   letter-spacing: 1.5px;
   font-size: 3rem;
 }
 
 .banner > p {
-  margin-bottom: 60px;
+  margin-bottom: 30px;
   font-size: 1.2rem;
 }
 
