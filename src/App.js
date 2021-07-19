@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Jobcontext from './utils/Jobcontext';
-import Jobs from './components/Jobs';
-import Header from './components/Header';
-import './css/App.css';
+import Home from './pages/Home';
 
 const App = () => {
   const [jobs, setJobs] = useState([]);
@@ -18,12 +17,15 @@ const App = () => {
   }, []);
 
   return (
-    <Jobcontext.Provider value={{ jobs }}>
-      <div className="App">
-        <Header />
-        <Jobs />
-      </div>
-    </Jobcontext.Provider>
+    <Router>
+      <Jobcontext.Provider value={{ jobs }}>
+        <Switch>
+          <Route>
+            <Home />
+          </Route>
+        </Switch>
+      </Jobcontext.Provider>
+    </Router>
   );
 };
 
