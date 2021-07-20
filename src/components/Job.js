@@ -1,13 +1,15 @@
-import React, { useHistory } from 'react';
+import React from 'react';
+import { useHistory } from 'react-router-dom';
 import '../css/Job.css';
 
 const Job = ({ job }) => {
-  // const onClickRedirect = () => {
-  //   history.push(`/jobs/${id}`);
-  // };
+  const history = useHistory();
+  const onClickRedirect = () => {
+    history.push(`/jobs/${job.id}`);
+  };
 
   return (
-    <div className="job">
+    <div className="job" onClick={onClickRedirect}>
       <div className="job__content">
         <img src={`${job.company_logo_url}`} alt="logo" />
         <div className="job__info">

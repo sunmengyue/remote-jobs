@@ -10,20 +10,13 @@ const App = () => {
   const [jobs, setJobs] = useState([]);
 
   const fetchJobs = async () => {
-    const res = await axios.get('https://remotive.io/api/remote-jobs?limit=20');
+    const res = await axios.get('https://remotive.io/api/remote-jobs?limit=10');
     setJobs(res.data.jobs);
-  };
-
-  const fetchCategory = async () => {
-    const res = await axios.get(
-      'https://remotive.io/api/remote-jobs/categories',
-    );
   };
 
   useEffect(() => {
     fetchJobs();
-    fetchCategory();
-  });
+  }, []);
 
   return (
     <Router>
@@ -32,9 +25,8 @@ const App = () => {
           <Route path="/" exact>
             <Home />
           </Route>
-          {/* <Route path="/jobs/:id">
-            <JobDetails />
-          </Route> */}
+          <Route path="/jobs/:id" render={(props) => <JobDetails />} />
+
           <Route path="/jobs/save">
             <Save />
           </Route>
