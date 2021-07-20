@@ -6,9 +6,8 @@ const SubHeader = () => {
   return (
     <div>
       <div className="saved">
-        <Link>Saved Jobs 6</Link>
+        <Link to="/jobs/save">Saved Jobs 6</Link>
       </div>
-      11VN
     </div>
   );
 };

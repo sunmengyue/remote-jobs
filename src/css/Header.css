@@ -10,7 +10,11 @@
   height: 300px;
   text-align: center;
   padding: 30px 50px;
-  background-image: linear-gradient(rgb(34, 42, 42, 0.6), rgb(34, 42, 42, 0.8)),
+  background-image: linear-gradient(
+      to bottom right,
+      rgb(0, 61, 128, 0.9),
+      rgb(34, 42, 42, 0.8)
+    ),
     url('../images/banner.jpg');
   background-size: initial;
   background-position: top;

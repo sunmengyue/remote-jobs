@@ -6,13 +6,12 @@ const Header = () => {
     <div className="header">
       <div className="banner">
         <h1>Remote Optimal</h1>
-        <p>You decide where to live and work</p>
+        <p>You decide where to work and live</p>
         <form>
           <input
             type="text"
             placeholder="Title, companies, expertise, or benefits"
           />
-          <i className="fas fa-briefcase"></i>
         </form>
       </div>
     </div>
