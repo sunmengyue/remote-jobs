@@ -1,7 +1,11 @@
-import React from 'react';
+import React, { useHistory } from 'react';
 import '../css/Job.css';
 
 const Job = ({ job }) => {
+  // const onClickRedirect = () => {
+  //   history.push(`/jobs/${id}`);
+  // };
+
   return (
     <div className="job">
       <div className="job__content">
@@ -18,7 +22,7 @@ const Job = ({ job }) => {
         <p className="job__tag">{job.job_type}</p>
       </div>
       <div className="post__time">
-        <i class="fas fa-clock"></i>
+        <i className="fas fa-clock"></i>
         {job.publication_date.slice(0, 10)}
       </div>
     </div>

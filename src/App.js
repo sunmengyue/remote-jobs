@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Jobcontext from './utils/Jobcontext';
 import Home from './pages/Home';
 import Save from './pages/Save';
+import JobDetails from './pages/JobDetails';
 
 const App = () => {
   const [jobs, setJobs] = useState([]);
@@ -31,6 +32,9 @@ const App = () => {
           <Route path="/" exact>
             <Home />
           </Route>
+          {/* <Route path="/jobs/:id">
+            <JobDetails />
+          </Route> */}
           <Route path="/jobs/save">
             <Save />
           </Route>
