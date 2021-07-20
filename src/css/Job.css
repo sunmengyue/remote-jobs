@@ -19,4 +19,21 @@
 .job > .job__content {
   display: flex;
   align-items: center;
+  max-width: 40%;
+}
+
+.job > .job__content > img {
+  width: 90px;
+  margin-right: 17px;
+}
+
+.job__content > .job__info > .company__name {
+  margin-bottom: 10px;
+}
+
+.job__content > .job__info > .job__tag {
+  font-size: 14px;
+  margin-bottom: 4px;
+  color: #003d80;
+  font-weight: 600;
 }

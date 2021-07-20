@@ -7,7 +7,7 @@ const Job = ({ job }) => {
       <div className="job__content">
         <img src={`${job.company_logo_url}`} alt="logo" />
         <div className="job__info">
-          <h5 className="title">{job.title}</h5>
+          <h4 className="title">{job.title}</h4>
           <p className="company__name">{job.company_name}</p>
           <p className="job__tag">{job.candidate_required_location}</p>
           <p className="job__tag">{job.salary}</p>
