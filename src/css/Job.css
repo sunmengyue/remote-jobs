@@ -16,10 +16,21 @@
   cursor: pointer;
 }
 
+.fas {
+  margin-right: 5px;
+}
+
+.job__tag {
+  font-size: 14px;
+  margin-bottom: 4px;
+  color: #003d80;
+  font-weight: 600;
+}
+
 .job > .job__content {
   display: flex;
   align-items: center;
-  max-width: 40%;
+  width: 40%;
 }
 
 .job > .job__content > img {
@@ -31,9 +42,17 @@
   margin-bottom: 10px;
 }
 
-.job__content > .job__info > .job__tag {
-  font-size: 14px;
+.job > .job__category {
+  width: 30%;
+  margin-left: 30px;
+  text-align: left;
+}
+
+.job__category > p:first-of-type {
   margin-bottom: 4px;
-  color: #003d80;
-  font-weight: 600;
+}
+
+.job > .post__time {
+  color: #b9bdcf;
+  font-size: 14px;
 }

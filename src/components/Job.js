@@ -14,10 +14,13 @@ const Job = ({ job }) => {
         </div>
       </div>
       <div className="job__category">
-        <p>{job.category}</p>
+        <p className="job__tag">{job.category}</p>
         <p className="job__tag">{job.job_type}</p>
       </div>
-      <div className="post__time">{job.publication_date}</div>
+      <div className="post__time">
+        <i class="fas fa-clock"></i>
+        {job.publication_date.slice(0, 10)}
+      </div>
     </div>
   );
 };

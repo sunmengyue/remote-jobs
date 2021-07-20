@@ -9,7 +9,7 @@ const App = () => {
   const [jobs, setJobs] = useState([]);
 
   const fetchJobs = async () => {
-    const res = await axios.get('https://remotive.io/api/remote-jobs?limit=10');
+    const res = await axios.get('https://remotive.io/api/remote-jobs?limit=20');
     setJobs(res.data.jobs);
   };
 
@@ -17,13 +17,12 @@ const App = () => {
     const res = await axios.get(
       'https://remotive.io/api/remote-jobs/categories',
     );
-    console.log(res.data);
   };
 
   useEffect(() => {
     fetchJobs();
     fetchCategory();
-  }, []);
+  });
 
   return (
     <Router>
