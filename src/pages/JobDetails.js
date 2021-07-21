@@ -14,15 +14,18 @@ const JobDetails = () => {
 
   return (
     <div className="page">
-      <h1>Remote Optimal</h1>
+      <h1>
+        Remote <span>Optimal</span>
+      </h1>
       <div className="job__details">
         <div className="control">
           <div className="back">
-            <i className="fas fa-long-arrow-alt-left"></i>back to search
+            <i class="fas fa-arrow-circle-left"></i>
+            <p>back to search</p>
           </div>
           <div className="action">
             <button>Apply</button>
-            <i className="fas fa-bookmark"></i>Save
+            <i className="fas fa-bookmark fa-lg"></i>Save
           </div>
         </div>
         <div className="jobinfo">
