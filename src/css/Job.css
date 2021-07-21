@@ -27,6 +27,13 @@
   font-weight: 600;
 }
 
+.post__time {
+  display: flex;
+  align-items: center;
+  color: #b9bdcf;
+  font-size: 14px;
+}
+
 .job > .job__content {
   display: flex;
   align-items: center;
@@ -50,9 +57,4 @@
 
 .job__category > p:first-of-type {
   margin-bottom: 4px;
-}
-
-.job > .post__time {
-  color: #b9bdcf;
-  font-size: 14px;
 }

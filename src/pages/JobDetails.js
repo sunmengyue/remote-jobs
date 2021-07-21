@@ -1,15 +1,51 @@
 import React, { useContext } from 'react';
 import Jobcontext from '../utils/Jobcontext';
 
-const JobDetails = ({ path }) => {
+const JobDetails = () => {
   const jobdata = useContext(Jobcontext);
   const { jobs } = jobdata;
-  const jobId = window.location.pathname.substring(
-    window.location.pathname.lastIndexOf('/') + 1,
+  const jobId = parseInt(
+    window.location.pathname.substring(
+      window.location.pathname.lastIndexOf('/') + 1,
+    ),
   );
-  const jobObj = jobs.find((job) => job.id == jobId);
+  const jobObj = jobs.find((job) => job.id === jobId);
 
-  return <h1>{jobObj.title}</h1>;
+  return (
+    <div className="page">
+      <h1>Remote Optimal</h1>
+      <div className="control">
+        <div className="back">
+          <i className="fas fa-long-arrow-alt-left"></i>back to search
+        </div>
+        <div className="action">
+          <button>Apply</button>
+          <i className="fas fa-bookmark"></i>Save
+        </div>
+      </div>
+      <div className="jobinfo">
+        <div className="jobinfo__header">
+          <h2>{jobObj.title}</h2>
+          <p className="job__tag">{jobObj.job_type}</p>
+          <div className="post__time">
+            <i className="fas fa-clock"></i>
+            <p>{jobObj.publication_date.slice(0, 10)}</p>
+          </div>
+          <div className="logo">
+            <img src={jobObj.company_logo_url} alt="logo" />
+            <div>
+              <p> {jobObj.company_name}</p>
+              <p>{jobObj.candidate_required_location}</p>
+            </div>
+          </div>
+        </div>
+        <div
+          className="jobinfo__content"
+          dangerouslySetInnerHTML={{ __html: jobObj.description }}
+        ></div>
+      </div>
+    </div>
+  );
 };
 
 export default JobDetails;
