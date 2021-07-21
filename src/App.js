@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+//import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import Route from './components/Route';
 import Jobcontext from './utils/Jobcontext';
 import Home from './pages/Home';
 import Save from './pages/Save';
@@ -19,20 +20,30 @@ const App = () => {
   }, []);
 
   return (
-    <Router>
-      <Jobcontext.Provider value={{ jobs }}>
-        <Switch>
-          <Route path="/" exact>
-            <Home />
-          </Route>
-          <Route path="/jobs/:id" render={(props) => <JobDetails />} />
-
-          <Route path="/jobs/save">
-            <Save />
-          </Route>
-        </Switch>
-      </Jobcontext.Provider>
-    </Router>
+    // <Router>
+    //   <Jobcontext.Provider value={{ jobs }}>
+    //     <Switch>
+    //       <Route path="/" exact>
+    //         <Home />
+    //       </Route>
+    //       <Route path="/jobs/:id" component={JobDetails} />
+    //       <Route path="/jobs/save" exact component={Save} />
+    //     </Switch>
+    //   </Jobcontext.Provider>
+    // </Router>
+    <Jobcontext.Provider value={{ jobs }}>
+      <Route path="/">
+        <Home />
+      </Route>
+      <Route path="/save">
+        <Save />
+      </Route>
+      {jobs.map((job) => (
+        <Route path={`/jobs/${job.id}`} key={job.id}>
+          <JobDetails />
+        </Route>
+      ))}
+    </Jobcontext.Provider>
   );
 };
 

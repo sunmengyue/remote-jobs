@@ -1,11 +1,17 @@
 import React from 'react';
-import { useHistory } from 'react-router-dom';
 import '../css/Job.css';
 
 const Job = ({ job }) => {
-  const history = useHistory();
-  const onClickRedirect = () => {
-    history.push(`/jobs/${job.id}`);
+  const onClickRedirect = (e) => {
+    if (e.metaKey || e.ctrlKey) {
+      return;
+    } // if cmd or ctrl, do not run code below, open a new tab
+
+    e.preventDefault();
+    window.history.pushState({}, '', `/jobs/${job.id}`);
+
+    const navEvent = new PopStateEvent('popstate');
+    window.dispatchEvent(navEvent);
   };
 
   return (
