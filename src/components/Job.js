@@ -17,7 +17,11 @@ const Job = ({ job }) => {
   return (
     <div className="job" onClick={onClickRedirect}>
       <div className="job__content">
-        <img src={`${job.company_logo_url}`} alt="logo" />
+        <img
+          src={`${job.company_logo_url}`}
+          alt="logo"
+          className="company__logo"
+        />
         <div className="job__info">
           <h4 className="title">{job.title}</h4>
           <p className="company__name">{job.company_name}</p>

@@ -1,0 +1,42 @@
+.page > h1 {
+  margin-bottom: 60px;
+  color: #282538;
+}
+
+.job__details {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.job__details > .jobinfo {
+  width: 65%;
+}
+
+.jobinfo__header > h2 {
+  margin-bottom: 8px;
+}
+
+.jobinfo__header > p {
+  margin-bottom: 8px;
+}
+
+.jobinfo__header > .post__time {
+  margin-bottom: 15px;
+}
+
+.jobinfo__header > .logo {
+  display: flex;
+}
+
+.logo > .company__logo {
+  width: 50px;
+  margin-bottom: 30px;
+}
+
+.job__companyInfo > .job__companyName {
+  font-weight: 600px;
+}
+
+.job__companyInfo > .job__companyLocation {
+}

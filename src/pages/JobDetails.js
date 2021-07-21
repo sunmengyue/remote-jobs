@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import Jobcontext from '../utils/Jobcontext';
+import '../css/JobDetails.css';
 
 const JobDetails = () => {
   const jobdata = useContext(Jobcontext);
@@ -14,35 +15,43 @@ const JobDetails = () => {
   return (
     <div className="page">
       <h1>Remote Optimal</h1>
-      <div className="control">
-        <div className="back">
-          <i className="fas fa-long-arrow-alt-left"></i>back to search
-        </div>
-        <div className="action">
-          <button>Apply</button>
-          <i className="fas fa-bookmark"></i>Save
-        </div>
-      </div>
-      <div className="jobinfo">
-        <div className="jobinfo__header">
-          <h2>{jobObj.title}</h2>
-          <p className="job__tag">{jobObj.job_type}</p>
-          <div className="post__time">
-            <i className="fas fa-clock"></i>
-            <p>{jobObj.publication_date.slice(0, 10)}</p>
+      <div className="job__details">
+        <div className="control">
+          <div className="back">
+            <i className="fas fa-long-arrow-alt-left"></i>back to search
           </div>
-          <div className="logo">
-            <img src={jobObj.company_logo_url} alt="logo" />
-            <div>
-              <p> {jobObj.company_name}</p>
-              <p>{jobObj.candidate_required_location}</p>
+          <div className="action">
+            <button>Apply</button>
+            <i className="fas fa-bookmark"></i>Save
+          </div>
+        </div>
+        <div className="jobinfo">
+          <div className="jobinfo__header">
+            <h2>{jobObj.title}</h2>
+            <p>{jobObj.job_type}</p>
+            <div className="post__time">
+              <i className="fas fa-clock"></i>
+              <p>{jobObj.publication_date.slice(0, 10)}</p>
+            </div>
+            <div className="logo">
+              <img
+                src={jobObj.company_logo_url}
+                alt="logo"
+                className="company__logo"
+              />
+              <div className="job__companyInfo">
+                <p className="job__companyName"> {jobObj.company_name}</p>
+                <p className="job__companyLocation">
+                  {jobObj.candidate_required_location}
+                </p>
+              </div>
             </div>
           </div>
+          <div
+            className="jobinfo__content"
+            dangerouslySetInnerHTML={{ __html: jobObj.description }}
+          ></div>
         </div>
-        <div
-          className="jobinfo__content"
-          dangerouslySetInnerHTML={{ __html: jobObj.description }}
-        ></div>
       </div>
     </div>
   );

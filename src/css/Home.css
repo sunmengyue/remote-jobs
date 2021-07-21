@@ -16,3 +16,9 @@ body {
 h1 {
   font-family: 'Roboto Slab', serif;
 }
+
+.page {
+  padding: 50px 100px;
+  max-width: 1500px;
+  color: #334680;
+}
