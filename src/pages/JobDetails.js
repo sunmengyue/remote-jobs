@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import Jobcontext from '../utils/Jobcontext';
+import Link from '../components/Link';
 import '../css/JobDetails.css';
 
 const JobDetails = () => {
@@ -19,10 +20,10 @@ const JobDetails = () => {
       </h1>
       <div className="job__details">
         <div className="control">
-          <div className="back">
-            <i class="fas fa-arrow-circle-left"></i>
+          <Link className="back" to="/">
+            <i className="fas fa-arrow-circle-left"></i>
             <p>back to search</p>
-          </div>
+          </Link>
           <div className="action">
             <button>Apply</button>
             <i className="fas fa-bookmark fa-lg"></i>Save

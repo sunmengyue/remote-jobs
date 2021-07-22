@@ -18,8 +18,13 @@ const App = () => {
     fetchJobs();
   }, []);
 
+  const popState = () => {
+    const navEvent = new PopStateEvent('popstate');
+    window.dispatchEvent(navEvent);
+  };
+
   return (
-    <Jobcontext.Provider value={{ jobs }}>
+    <Jobcontext.Provider value={{ jobs, popState }}>
       <Route path="/">
         <Home />
       </Route>

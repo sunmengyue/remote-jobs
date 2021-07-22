@@ -52,10 +52,12 @@
 }
 
 .control .back {
+  text-decoration: none;
   display: flex;
   align-items: center;
   justify-content: center;
   margin-bottom: 25px;
+  cursor: pointer;
 }
 
 .control .fa-long-arrow-alt-left {

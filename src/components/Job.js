@@ -1,7 +1,11 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import '../css/Job.css';
+import Jobcontext from '../utils/Jobcontext';
 
 const Job = ({ job }) => {
+  const jobData = useContext(Jobcontext);
+  const { popState } = jobData;
+
   const onClickRedirect = (e) => {
     if (e.metaKey || e.ctrlKey) {
       return;
@@ -9,9 +13,7 @@ const Job = ({ job }) => {
 
     e.preventDefault();
     window.history.pushState({}, '', `/jobs/${job.id}`);
-
-    const navEvent = new PopStateEvent('popstate');
-    window.dispatchEvent(navEvent);
+    popState();
   };
 
   return (
