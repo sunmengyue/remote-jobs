@@ -11,15 +11,23 @@ import JobDetails from './pages/JobDetails';
 
 const App = () => {
   const [jobs, setJobs] = useState([]);
-
-  const fetchJobs = async () => {
-    const res = await axios.get('https://remotive.io/api/remote-jobs?limit=10');
-    setJobs(res.data.jobs);
-  };
+  const [page, setPage] = useState(1);
+  const [loading, setLoading] = useState(false);
+  const [params, setParams] = useState({});
 
   useEffect(() => {
-    fetchJobs();
-  }, []);
+    const cancelToken = axios.CancelToken.source();
+    axios
+      .get('https://remotive.io/api/remote-jobs', {
+        cancelToken: cancelToken.token,
+        params: { ...params, limit: 10 },
+      })
+      .then((res) => setJobs(res.data.jobs));
+
+    return () => {
+      cancelToken.cancel();
+    };
+  }, [params, page]);
 
   const popState = () => {
     const navEvent = new PopStateEvent('popstate');
@@ -27,7 +35,7 @@ const App = () => {
   };
 
   return (
-    <Jobcontext.Provider value={{ jobs, popState }}>
+    <Jobcontext.Provider value={{ jobs, setJobs, popState }}>
       <Route path="/">
         <Home />
       </Route>
