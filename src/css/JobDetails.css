@@ -1,9 +1,23 @@
-.page > h1 {
-  margin-bottom: 60px;
-  color: #282538 !important;
+.toHome {
+  text-decoration: none;
+  color: #282538;
 }
 
-.page > h1 > span {
+.back {
+  color: #334680;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+
+  margin-bottom: 25px;
+  cursor: pointer;
+}
+
+.page h1 {
+  margin-bottom: 60px;
+}
+
+.page h1 > span {
   font-weight: 300;
 }
 
@@ -49,16 +63,6 @@
 
 .jobinfo__content {
   font-size: 15px;
-}
-
-.control .back {
-  color: #334680;
-  text-decoration: none;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 25px;
-  cursor: pointer;
 }
 
 .control .fa-long-arrow-alt-left {

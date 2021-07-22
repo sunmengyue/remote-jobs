@@ -15,9 +15,11 @@ const JobDetails = () => {
 
   return (
     <div className="page">
-      <h1>
-        Remote <span>Optimal</span>
-      </h1>
+      <Link className="toHome" to="/">
+        <h1>
+          Remote <span>Optimal</span>
+        </h1>
+      </Link>
       <div className="job__details">
         <div className="control">
           <Link className="back" to="/">
@@ -26,7 +28,7 @@ const JobDetails = () => {
           </Link>
           <div className="action">
             <button>Apply</button>
-            <Link className="save" to="/save">
+            <Link className="save" to="/jobs/saved">
               <i className="fas fa-bookmark fa-lg"></i>Save
             </Link>
           </div>

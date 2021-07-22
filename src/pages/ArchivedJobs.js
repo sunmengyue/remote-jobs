@@ -1,7 +1,7 @@
 import React from 'react';
 
 const ArchivedJobs = () => {
-  return <div></div>;
+  return <div className="page">Archived</div>;
 };
 
 export default ArchivedJobs;
