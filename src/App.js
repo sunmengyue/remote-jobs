@@ -3,7 +3,9 @@ import axios from 'axios';
 import Route from './components/Route';
 import Jobcontext from './utils/Jobcontext';
 import Home from './pages/Home';
-import Save from './pages/Save';
+import SavedJobs from './pages/SavedJobs';
+import ArchivedJobs from './pages/ArchivedJobs';
+import AppliedJobs from './pages/AppliedJobs';
 import JobDetails from './pages/JobDetails';
 
 const App = () => {
@@ -29,7 +31,13 @@ const App = () => {
         <Home />
       </Route>
       <Route path="/save">
-        <Save />
+        <SavedJobs />
+      </Route>
+      <Route>
+        <AppliedJobs />
+      </Route>
+      <Route>
+        <ArchivedJobs />
       </Route>
       {jobs.map((job) => (
         <Route path={`/jobs/${job.id}`} key={job.id}>

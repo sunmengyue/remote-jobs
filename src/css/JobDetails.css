@@ -52,6 +52,7 @@
 }
 
 .control .back {
+  color: #334680;
   text-decoration: none;
   display: flex;
   align-items: center;
@@ -83,4 +84,9 @@
   border-radius: 4px;
   font-size: 15px;
   cursor: pointer;
+}
+
+.action > .save {
+  text-decoration: none;
+  color: #334680;
 }

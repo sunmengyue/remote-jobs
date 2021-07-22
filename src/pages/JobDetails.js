@@ -26,7 +26,9 @@ const JobDetails = () => {
           </Link>
           <div className="action">
             <button>Apply</button>
-            <i className="fas fa-bookmark fa-lg"></i>Save
+            <Link className="save" to="/save">
+              <i className="fas fa-bookmark fa-lg"></i>Save
+            </Link>
           </div>
         </div>
         <div className="jobinfo">
