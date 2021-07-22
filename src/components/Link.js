@@ -6,6 +6,9 @@ const Link = ({ className, to, children }) => {
   const { popState } = jobData;
 
   const onClick = (e) => {
+    if (e.metaKey || e.ctrlKey) {
+      return;
+    }
     e.preventDefault();
     window.history.pushState({}, '', to);
     popState();
