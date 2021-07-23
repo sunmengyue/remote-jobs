@@ -11,32 +11,53 @@ import JobDetails from './pages/JobDetails';
 
 const App = () => {
   const [jobs, setJobs] = useState([]);
-  const [page, setPage] = useState(1);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [postsPerPage] = useState(10);
   const [loading, setLoading] = useState(false);
   const [params, setParams] = useState({});
 
+  // fetch data
   useEffect(() => {
     const cancelToken = axios.CancelToken.source();
     setLoading(true);
     axios
       .get('https://remotive.io/api/remote-jobs', {
         cancelToken: cancelToken.token,
-        params: { ...params, limit: 100 },
+        params: { ...params, limit: 70 },
       })
       .then((res) => setJobs(res.data.jobs));
     setLoading(false);
     return () => {
       cancelToken.cancel();
     };
-  }, [params, page]);
+  }, [params, currentPage]);
 
+  // pagination
+  const lastPostIdx = currentPage * postsPerPage;
+  const firstPostIdx = lastPostIdx - postsPerPage;
+  const currentPosts = jobs.slice(firstPostIdx, lastPostIdx);
+  const paginate = (pageNum) => {
+    setCurrentPage(pageNum);
+  };
+
+  // create a url change event for the router, getting called in the link component
   const popState = () => {
     const navEvent = new PopStateEvent('popstate');
     window.dispatchEvent(navEvent);
   };
 
   return (
-    <Jobcontext.Provider value={{ jobs, setJobs, popState, loading }}>
+    <Jobcontext.Provider
+      value={{
+        jobs,
+        setJobs,
+        popState,
+        loading,
+        currentPosts,
+        postsPerPage,
+        paginate,
+      }}
+    >
       <Route path="/">
         <Home />
       </Route>
