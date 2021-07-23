@@ -5,7 +5,11 @@ import '../css/Jobs.css';
 
 const Jobs = () => {
   const jobdata = useContext(Jobcontext);
+  const { loading } = jobdata;
 
+  if (loading) {
+    return <h2>loading...</h2>;
+  }
   const listJobs = () =>
     jobdata.jobs.map((job) => <Job job={job} key={job.id} />);
 

@@ -17,13 +17,14 @@ const App = () => {
 
   useEffect(() => {
     const cancelToken = axios.CancelToken.source();
+    setLoading(true);
     axios
       .get('https://remotive.io/api/remote-jobs', {
         cancelToken: cancelToken.token,
-        params: { ...params, limit: 10 },
+        params: { ...params, limit: 100 },
       })
       .then((res) => setJobs(res.data.jobs));
-
+    setLoading(false);
     return () => {
       cancelToken.cancel();
     };
@@ -35,7 +36,7 @@ const App = () => {
   };
 
   return (
-    <Jobcontext.Provider value={{ jobs, setJobs, popState }}>
+    <Jobcontext.Provider value={{ jobs, setJobs, popState, loading }}>
       <Route path="/">
         <Home />
       </Route>

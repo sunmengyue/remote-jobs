@@ -19,11 +19,16 @@ const Job = ({ job }) => {
   return (
     <div className="job" onClick={onClickRedirect}>
       <div className="job__content">
-        <img
-          src={`${job.company_logo_url}`}
-          alt="logo"
-          className="company__logo"
-        />
+        {job.company_logo_url ? (
+          <img
+            src={`${job.company_logo_url}`}
+            alt="logo"
+            className="company__logo"
+          />
+        ) : (
+          <i class="fas fa-building fa-3x"></i>
+        )}
+
         <div className="job__info">
           <h4 className="title">{job.title}</h4>
           <p className="company__name">{job.company_name}</p>
