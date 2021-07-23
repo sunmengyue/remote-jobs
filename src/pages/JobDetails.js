@@ -27,7 +27,14 @@ const JobDetails = () => {
             <p>back to search</p>
           </Link>
           <div className="action">
-            <button>Apply</button>
+            <a
+              className="apply"
+              href={`${jobObj.url}`}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Apply
+            </a>
             <Link className="save" to="/jobs/saved">
               <i className="fas fa-bookmark fa-lg"></i>Save
             </Link>
@@ -42,11 +49,15 @@ const JobDetails = () => {
               <p>{jobObj.publication_date.slice(0, 10)}</p>
             </div>
             <div className="logo">
-              <img
-                src={jobObj.company_logo_url}
-                alt="logo"
-                className="company__logo"
-              />
+              {jobObj.company_logo_url ? (
+                <img
+                  src={`${jobObj.company_logo_url}`}
+                  alt="logo"
+                  className="company__logo"
+                />
+              ) : (
+                <i className="fas fa-building fa-3x"></i>
+              )}
               <div className="job__companyInfo">
                 <p className="job__companyName"> {jobObj.company_name}</p>
                 <p className="job__companyLocation">

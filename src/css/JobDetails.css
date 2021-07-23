@@ -52,6 +52,10 @@
   margin-bottom: 30px;
 }
 
+.logo > .fa-building {
+  margin-bottom: 30px;
+}
+
 .job__companyInfo > .job__companyName {
   font-weight: 700;
   margin-bottom: 5px;
@@ -79,7 +83,8 @@
   align-items: center;
 }
 
-.action > button {
+.action > .apply {
+  text-decoration: none;
   margin-right: 15px;
   padding: 10px 20px;
   background-color: #0198e1;

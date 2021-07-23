@@ -26,7 +26,7 @@ const Job = ({ job }) => {
             className="company__logo"
           />
         ) : (
-          <i class="fas fa-building fa-3x"></i>
+          <i className="fas fa-building fa-4x"></i>
         )}
 
         <div className="job__info">
