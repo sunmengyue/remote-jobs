@@ -18,6 +18,10 @@
   color: #585858;
 }
 
+.page__list > .page__item__active {
+  background-color: #e0e0e0;
+}
+
 .page__list > .page__item:hover {
   cursor: pointer;
   background-color: #e0e0e0;
