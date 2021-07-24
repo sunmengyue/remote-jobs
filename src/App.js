@@ -56,6 +56,8 @@ const App = () => {
         currentPosts,
         postsPerPage,
         paginate,
+        currentPage,
+        setCurrentPage,
       }}
     >
       <Route path="/">
