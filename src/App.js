@@ -36,9 +36,6 @@ const App = () => {
   const lastPostIdx = currentPage * postsPerPage;
   const firstPostIdx = lastPostIdx - postsPerPage;
   const currentPosts = jobs.slice(firstPostIdx, lastPostIdx);
-  const paginate = (pageNum) => {
-    setCurrentPage(pageNum);
-  };
 
   // create a url change event for the router, getting called in the link component
   const popState = () => {
@@ -55,7 +52,6 @@ const App = () => {
         loading,
         currentPosts,
         postsPerPage,
-        paginate,
         currentPage,
         setCurrentPage,
       }}

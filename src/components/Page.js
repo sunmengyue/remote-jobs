@@ -26,12 +26,12 @@ const Page = () => {
 
   const goToNext = () => {
     handleNext();
-    currentPage <= lastPage && setCurrentPage(currentPage + 1);
+    currentPage < lastPage && setCurrentPage(currentPage + 1);
   };
 
   const goBack = () => {
     handleBefore();
-    currentPage >= 1 && setCurrentPage(currentPage - 1);
+    currentPage > 1 && setCurrentPage(currentPage - 1);
   };
 
   const switchPage = (e) => {
