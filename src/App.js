@@ -23,7 +23,7 @@ const App = () => {
     axios
       .get('https://remotive.io/api/remote-jobs', {
         cancelToken: cancelToken.token,
-        params: { ...params, limit: 70 },
+        params: { ...params, limit: 150 },
       })
       .then((res) => setJobs(res.data.jobs));
     setLoading(false);

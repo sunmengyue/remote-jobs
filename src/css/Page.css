@@ -1,0 +1,27 @@
+.page__list {
+  display: flex;
+  list-style: none;
+  background-color: #fff;
+  width: fit-content;
+  border: 1px solid #c8c8c8;
+  border-radius: 5px;
+  box-shadow: 0px 7px 9px -6px rgba(0, 0, 0, 0.58);
+}
+
+.page__list > .page__item {
+  width: 30px;
+  height: 30px;
+  border: 1px solid #c8c8c8;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #585858;
+}
+
+.page__list > .page__item:hover {
+  cursor: pointer;
+  background-color: #e0e0e0;
+}
+
+.page__list .fas {
+}

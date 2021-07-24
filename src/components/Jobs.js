@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import Jobcontext from '../utils/Jobcontext';
 import Job from './Job';
-import Pagination from './Pagination';
+import Page from './Page';
 import '../css/Jobs.css';
 
 const Jobs = () => {
@@ -17,7 +17,7 @@ const Jobs = () => {
   return (
     <div className="jobs">
       <div className="job__list">{listJobs()}</div>
-      <Pagination />
+      <Page />
     </div>
   );
 };
