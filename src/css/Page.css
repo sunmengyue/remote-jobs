@@ -19,7 +19,7 @@
 }
 
 .page__list > .page__item__active {
-  background-color: #e0e0e0;
+  background-color: rgb(202, 23, 128, 0.3);
 }
 
 .page__list > .page__item:hover {

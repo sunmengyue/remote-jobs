@@ -12,20 +12,27 @@ import JobDetails from './pages/JobDetails';
 const App = () => {
   const [jobs, setJobs] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
-  const [postsPerPage] = useState(10);
+  const [postsPerPage] = useState(5);
   const [loading, setLoading] = useState(false);
   const [params, setParams] = useState({});
 
   // fetch data
   useEffect(() => {
-    const cancelToken = axios.CancelToken.source();
     setLoading(true);
+    const cancelToken = axios.CancelToken.source();
     axios
       .get('https://remotive.io/api/remote-jobs', {
         cancelToken: cancelToken.token,
-        params: { ...params, limit: 150 },
+        params: { ...params, limit: 1000 },
       })
-      .then((res) => setJobs(res.data.jobs));
+      .then((res) => {
+        setJobs(res.data.jobs);
+        setLoading(false);
+      })
+      .catch((error) => {
+        console.log(error);
+        setLoading(false);
+      });
     setLoading(false);
     return () => {
       cancelToken.cancel();
@@ -49,6 +56,8 @@ const App = () => {
         jobs,
         setJobs,
         popState,
+        params,
+        setParams,
         loading,
         currentPosts,
         postsPerPage,

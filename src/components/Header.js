@@ -1,21 +1,16 @@
-import axios from 'axios';
-import React, { useState, useContext } from 'react';
+import React, { useContext } from 'react';
 import Jobcontext from '../utils/Jobcontext';
 import '../css/Header.css';
-import Job from './Job';
 
 const Header = () => {
   const jobData = useContext(Jobcontext);
-  const { searchJob, input, setInput } = jobData;
+  const { params, setParams, setCurrentPage } = jobData;
 
-  const handleChange = (e) => {
-    setInput(e.target.value, () => {
-      searchJob(input);
-    });
-  };
-
-  const handleSubmit = () => {
-    searchJob(input);
+  const handleParamChange = (e) => {
+    const value = e.target.value;
+    const param = e.target.name;
+    setCurrentPage(1);
+    setParams((prevParams) => ({ ...prevParams, [param]: value }));
   };
 
   return (
@@ -23,12 +18,13 @@ const Header = () => {
       <div className="banner">
         <h1>Remote Optimal</h1>
         <p>You decide where to work and live</p>
-        <form onSubmit={handleSubmit}>
+        <form>
           <input
             type="text"
             placeholder="Title, companies, expertise, or benefits"
-            value={input}
-            onChange={handleChange}
+            value={params.search}
+            name="search"
+            onChange={handleParamChange}
           />
         </form>
       </div>

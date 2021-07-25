@@ -12,6 +12,7 @@
   padding: 30px 50px;
   background-image: linear-gradient(
       to bottom right,
+      rgb(202, 23, 128, 0.7),
       rgb(0, 61, 128, 0.9),
       rgb(34, 42, 42, 0.8)
     ),
