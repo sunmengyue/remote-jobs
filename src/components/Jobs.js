@@ -13,14 +13,14 @@ const Jobs = () => {
 
   if (loading) {
     return <h2>Loading...</h2>;
+  } else {
+    return (
+      <div className="jobs">
+        <div className="job__list">{listJobs()}</div>
+        <Page />
+      </div>
+    );
   }
-
-  return (
-    <div className="jobs">
-      <div className="job__list">{listJobs()}</div>
-      <Page />
-    </div>
-  );
 };
 
 export default Jobs;

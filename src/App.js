@@ -33,7 +33,7 @@ const App = () => {
         console.log(error);
         setLoading(false);
       });
-    setLoading(false);
+
     return () => {
       cancelToken.cancel();
     };

@@ -1,16 +1,20 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import Jobcontext from '../utils/Jobcontext';
 import '../css/Header.css';
 
 const Header = () => {
+  const [input, setInput] = useState('');
   const jobData = useContext(Jobcontext);
-  const { params, setParams, setCurrentPage } = jobData;
+  const { setParams, setCurrentPage } = jobData;
 
   const handleParamChange = (e) => {
-    const value = e.target.value;
-    const param = e.target.name;
-    setCurrentPage(1);
-    setParams((prevParams) => ({ ...prevParams, [param]: value }));
+    if (e.keyCode === 13) {
+      e.preventDefault();
+      const value = e.target.value;
+      const param = e.target.name;
+      setCurrentPage(1);
+      setParams((prevParams) => ({ ...prevParams, [param]: value }));
+    }
   };
 
   return (
@@ -22,9 +26,12 @@ const Header = () => {
           <input
             type="text"
             placeholder="Title, companies, expertise, or benefits"
-            value={params.search}
+            value={input}
             name="search"
-            onChange={handleParamChange}
+            onChange={(e) => {
+              setInput(e.target.value);
+            }}
+            onKeyDown={handleParamChange}
           />
         </form>
       </div>
