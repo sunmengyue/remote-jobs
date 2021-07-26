@@ -4,8 +4,8 @@ import '../css/DropDown.css';
 
 const DropDown = () => {
   const [categories, setCategories] = useState([]);
-  const [catInput, setCatInput] = useState('');
-  const [showCategories, setShowCategories] = useState(false);
+  const [showList, setShowList] = useState(false);
+  const [selection, setSelection] = useState([]);
 
   useEffect(() => {
     axios
@@ -18,34 +18,41 @@ const DropDown = () => {
 
   const listCategories = () => {
     return categories.map((category) => {
-      <li key="category.id" slug={category.slug}>
-        {category.name}
-      </li>;
+      return (
+        <li key={category.id} className="dropdown__list__item">
+          {category.name}
+        </li>
+      );
     });
   };
 
+  const onInputChange = (e) => {
+    const newCategories = categories.filter((cat) =>
+      cat.slug.includes(e.target.value),
+    );
+    console.log(categories);
+    setCategories(newCategories);
+  };
+
   const toggleList = () => {
-    setShowCategories(!showCategories);
+    setShowList(!showList);
   };
 
   return (
-    <form className="form">
+    <div className="form">
       <div className="field">
         <input
           type="text"
-          value={catInput}
           name="category"
-          onChange={(e) => {
-            setCatInput(e.target.value);
-          }}
+          onChange={onInputChange}
           placeholder="category"
         />
         <button type="button" onClick={toggleList}>
           <i className="fas fa-caret-down"></i>
         </button>
       </div>
-      <ul>{listCategories()}</ul>
-    </form>
+      <ul className="dropdown__list">{showList && listCategories()}</ul>
+    </div>
   );
 };
 
