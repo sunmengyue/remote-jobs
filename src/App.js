@@ -12,6 +12,7 @@ import JobDetails from './pages/JobDetails';
 const App = () => {
   const [jobs, setJobs] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
+  const [pages, setPages] = useState([1, 2, 3]);
   const [postsPerPage] = useState(15);
   const [loading, setLoading] = useState(false);
   const [params, setParams] = useState({});
@@ -63,6 +64,8 @@ const App = () => {
         postsPerPage,
         currentPage,
         setCurrentPage,
+        pages,
+        setPages,
       }}
     >
       <Route path="/">

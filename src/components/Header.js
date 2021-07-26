@@ -5,14 +5,16 @@ import '../css/Header.css';
 const Header = () => {
   const [input, setInput] = useState('');
   const jobData = useContext(Jobcontext);
-  const { setParams, setCurrentPage } = jobData;
+  const { setParams, setCurrentPage, setPages } = jobData;
 
   const handleParamChange = (e) => {
+    // this does not work on form because the e.target is not an input
     if (e.keyCode === 13) {
       e.preventDefault();
       const value = e.target.value;
       const param = e.target.name;
       setCurrentPage(1);
+      setPages([1, 2, 3]);
       setParams((prevParams) => ({ ...prevParams, [param]: value }));
     }
   };

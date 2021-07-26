@@ -4,9 +4,9 @@ import Link from './Link';
 import '../css/Page.css';
 
 const Page = () => {
-  const [pages, setPages] = useState([1, 2, 3]);
   const jobData = useContext(Jobcontext);
-  const { jobs, setCurrentPage, postsPerPage, currentPage } = jobData;
+  const { pages, setPages, jobs, setCurrentPage, postsPerPage, currentPage } =
+    jobData;
   const lastPage = Math.ceil(jobs.length / postsPerPage);
 
   // helper function for left and right arrows
