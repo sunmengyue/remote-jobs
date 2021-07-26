@@ -1,13 +1,9 @@
-.header {
-  clip-path: polygon(0 0, 100% 0, 100% 70%, 0 100%);
-}
-
 .banner {
   display: flex;
   flex-direction: column;
   justify-content: center;
   color: #fff;
-  height: 300px;
+  /* height: 300px; */
   text-align: center;
   padding: 30px 50px;
   background-image: linear-gradient(
@@ -32,22 +28,35 @@
   font-size: 1.2rem;
 }
 
-.banner form {
-  margin-bottom: 80px;
+.banner > .forms {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.banner > form > input {
-  padding: 16px 30px;
-  width: 350px;
+.forms > .form {
+  background-color: #fff;
+  padding: 10px;
+  width: 380px;
+  border-radius: 4px;
   border: none;
-  border-radius: 30px;
 }
 
-.banner > form > input:focus {
+.forms > .form:first-of-type {
+  margin-right: 30px;
+}
+
+.forms > .form input {
+  width: 100%;
+  border: none;
+  padding: 5px 20px;
+}
+
+.forms > .form input:focus {
   outline: none;
 }
 
-.banner > form > input::placeholder {
+.forms > .form input::placeholder {
   color: #a0a0a0;
   letter-spacing: 0.4px;
   font-size: 13px;

@@ -1,5 +1,6 @@
 import React, { useContext, useState } from 'react';
 import Jobcontext from '../utils/Jobcontext';
+import DropDown from './DropDown';
 import '../css/Header.css';
 
 const Header = () => {
@@ -24,18 +25,21 @@ const Header = () => {
       <div className="banner">
         <h1>Remote Optimal</h1>
         <p>You decide where to work and live</p>
-        <form>
-          <input
-            type="text"
-            placeholder="Title, companies, expertise, or benefits"
-            value={input}
-            name="search"
-            onChange={(e) => {
-              setInput(e.target.value);
-            }}
-            onKeyDown={handleParamChange}
-          />
-        </form>
+        <div className="forms">
+          <form className="form">
+            <input
+              type="text"
+              placeholder="Title, companies, expertise, or benefits"
+              value={input}
+              name="search"
+              onChange={(e) => {
+                setInput(e.target.value);
+              }}
+              onKeyDown={handleParamChange}
+            />
+          </form>
+          <DropDown />
+        </div>
       </div>
     </div>
   );
