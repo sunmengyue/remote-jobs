@@ -7,3 +7,26 @@
   width: 70%;
   margin: auto;
 }
+
+.saved__jobs {
+  text-decoration: none;
+  color: #282538;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+.saved__jobs:hover.saved__jobs > h3 {
+  font-weight: 600;
+}
+
+.saved__jobs > h3 {
+  margin-right: 10px;
+  font-weight: 500;
+  transition: font-weight 0.1s ease;
+}
+
+.saved__jobs > .fas {
+  color: rgba(202, 23, 128, 0.8);
+}

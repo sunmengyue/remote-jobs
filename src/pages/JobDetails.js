@@ -5,13 +5,15 @@ import '../css/JobDetails.css';
 
 const JobDetails = () => {
   const jobdata = useContext(Jobcontext);
-  const { jobs } = jobdata;
+  const { jobs, savedJobs, setSavedJobs } = jobdata;
   const jobId = parseInt(
     window.location.pathname.substring(
       window.location.pathname.lastIndexOf('/') + 1,
     ),
   );
   const jobObj = jobs.find((job) => job.id === jobId);
+
+  const saveJob = () => {};
 
   return (
     <div className="page">

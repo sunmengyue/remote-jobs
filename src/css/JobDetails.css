@@ -98,4 +98,10 @@
 .action > .save {
   text-decoration: none;
   color: #334680;
+  transition: color 0.2s ease;
+}
+
+.action > .save:hover {
+  cursor: pointer;
+  color: #de3163;
 }

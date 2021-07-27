@@ -16,6 +16,7 @@ const App = () => {
   const [postsPerPage] = useState(15);
   const [loading, setLoading] = useState(false);
   const [params, setParams] = useState({});
+  const [savedJobs, setSavedJobs] = useState([]);
 
   // fetch data
   useEffect(() => {
@@ -66,6 +67,8 @@ const App = () => {
         setCurrentPage,
         pages,
         setPages,
+        savedJobs,
+        setSavedJobs,
       }}
     >
       <Route path="/">
