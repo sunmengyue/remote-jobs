@@ -4,24 +4,24 @@ import '../css/DropDown.css';
 
 const DropDown = () => {
   const [categories, setCategories] = useState([]);
+  const [isOpen, setIsOpen] = useState(false);
   const ulRef = useRef();
   const inputRef = useRef();
 
   useEffect(() => {
     axios.get('https://remotive.io/api/remote-jobs/categories').then((res) => {
       setCategories(res.data.jobs);
-      ulRef.current.style.display = 'none';
     });
 
     // show the list when click on input and hide the list when click on blank page
     inputRef.current.addEventListener('click', (e) => {
       e.stopPropagation();
-      ulRef.current.style.display = 'block';
+      setIsOpen(true);
       onInputChange(e);
     });
 
     document.addEventListener('click', () => {
-      ulRef.current.style.display = 'none';
+      setIsOpen(false);
     });
   }, []);
 
@@ -45,6 +45,7 @@ const DropDown = () => {
     const newCategories = categories.filter((cat) =>
       cat.slug.toLowerCase().includes(e.target.value.toLowerCase()),
     );
+
     setCategories(newCategories);
   };
 
@@ -57,11 +58,14 @@ const DropDown = () => {
           ref={inputRef}
           onChange={onInputChange}
           placeholder="category"
+          onClick={() => {
+            setIsOpen(true);
+          }}
         />
         <i className="fas fa-caret-down"></i>
       </div>
       <ul className="dropdown__list" ref={ulRef}>
-        {listCategories()}
+        {isOpen && listCategories()}
       </ul>
     </div>
   );
