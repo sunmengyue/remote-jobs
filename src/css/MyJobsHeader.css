@@ -25,25 +25,6 @@
   opacity: 0.75;
 }
 
-.saved__list > .list__item::before {
-  transition: 300ms;
-  height: 4px;
-  content: '';
-  position: absolute;
-  background-color: #0d6efd;
-  border-radius: 4px 4px 0px 0px;
-}
-
-.list__item::before {
-  height: 0%;
-  width: 100%;
-  bottom: 0px;
-}
-
-.list__item:hover::before {
-  height: 5px;
-}
-
 .saved__list > .list__item:hover {
   color: #0d6efd;
   position: relative;

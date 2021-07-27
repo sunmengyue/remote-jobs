@@ -8,9 +8,10 @@ const SavedJobs = () => {
 
   const listSavedJobs = () => {
     if (savedJobs.length) {
-      savedJobs.map((job) => {
+      return savedJobs.map((job) => {
         return <Job key={job.id} job={job} />;
       });
+      <h1>save</h1>;
     } else {
       return (
         <h3 style={{ fontWeight: '400' }}>
@@ -24,11 +25,7 @@ const SavedJobs = () => {
     }
   };
 
-  return (
-    <div className="page">
-      <div className="job__list">{listSavedJobs()}</div>
-    </div>
-  );
+  return <div className="page">{listSavedJobs()}</div>;
 };
 
 export default SavedJobs;
