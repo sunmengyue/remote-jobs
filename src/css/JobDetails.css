@@ -96,12 +96,12 @@
 }
 
 .action > .save {
-  text-decoration: none;
+  border: none;
+  background-color: #f6f7fb;
   color: #334680;
   transition: color 0.2s ease;
 }
 
 .action > .save:hover {
   cursor: pointer;
-  color: #de3163;
 }

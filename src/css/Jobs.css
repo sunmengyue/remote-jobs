@@ -27,6 +27,7 @@
   transition: font-weight 0.1s ease;
 }
 
-.saved__jobs > .fas {
+.saved__jobs > .fas,
+.saved__jobs > .far {
   color: rgba(202, 23, 128, 0.8);
 }

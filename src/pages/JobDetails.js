@@ -13,7 +13,16 @@ const JobDetails = () => {
   );
   const jobObj = jobs.find((job) => job.id === jobId);
 
-  const saveJob = () => {};
+  const saveJob = () => {
+    if (!savedJobs.includes(jobObj)) {
+      setSavedJobs([...savedJobs, jobObj]);
+    }
+    if (savedJobs.includes(jobObj)) {
+      setSavedJobs(() => {
+        return savedJobs.filter((job) => job.id !== jobId);
+      });
+    }
+  };
 
   return (
     <div className="page">
@@ -37,9 +46,19 @@ const JobDetails = () => {
             >
               Apply
             </a>
-            <Link className="save" to="/jobs/saved">
-              <i className="fas fa-bookmark fa-lg"></i>Save
-            </Link>
+            <button
+              className="save"
+              to="/jobs/saved"
+              onClick={saveJob}
+              style={
+                savedJobs.includes(jobObj)
+                  ? { color: '#de3163' }
+                  : { color: '#003d80' }
+              }
+            >
+              <i className="fas fa-bookmark fa-lg"></i>
+              {savedJobs.includes(jobObj) ? 'Saved' : 'Save'}
+            </button>
           </div>
         </div>
         <div className="jobinfo">
