@@ -3,13 +3,11 @@
   align-items: center;
 }
 
-.field > button {
-  background-color: #fff;
-  border: none;
-  cursor: pointer;
+.field > input:focus {
+  outline: none;
 }
 
-.field > button > .fas {
+.field > .fas {
   color: #a0a0a0;
 }
 
