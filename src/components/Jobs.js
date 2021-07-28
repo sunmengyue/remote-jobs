@@ -15,12 +15,12 @@ const Jobs = () => {
   return (
     <div className="jobs">
       <Link to="/jobs/saved" className="saved__jobs">
-        <h3> My Saved Jobs : {savedJobs.length} </h3>
         {savedJobs.length ? (
           <i className="fas fa-folder fa-2x"></i>
         ) : (
           <i className="far fa-folder fa-2x"></i>
         )}
+        <h3> My Saved Jobs : {savedJobs.length} </h3>
       </Link>
       <div className="job__list">{listJobs()}</div>
       <Page />

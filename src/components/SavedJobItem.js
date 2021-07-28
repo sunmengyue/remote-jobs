@@ -29,8 +29,14 @@ const SavedJobItem = ({ job }) => {
         {job.publication_date.slice(0, 10)}
       </div>
       <div className="job__action">
-        <button>Apply now</button>
-        <button>Mark as applied</button>
+        <a
+          href={job.url}
+          className="job__step job__step__first"
+          target="_blank"
+        >
+          Apply Now
+        </a>
+        <button className="job__step job__step__second">Mark as applied</button>
         <p>✕</p>
       </div>
     </div>

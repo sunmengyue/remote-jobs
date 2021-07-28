@@ -18,16 +18,16 @@
 }
 
 .saved__jobs:hover.saved__jobs > h3 {
-  font-weight: 600;
+  text-decoration: underline;
 }
 
 .saved__jobs > h3 {
-  margin-right: 10px;
   font-weight: 500;
   transition: font-weight 0.1s ease;
 }
 
 .saved__jobs > .fas,
 .saved__jobs > .far {
+  margin-right: 10px;
   color: rgba(202, 23, 128, 0.8);
 }
