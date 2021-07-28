@@ -33,6 +33,7 @@ const SavedJobItem = ({ job }) => {
           href={job.url}
           className="job__step job__step__first"
           target="_blank"
+          rel="noreferrer"
         >
           Apply Now
         </a>
