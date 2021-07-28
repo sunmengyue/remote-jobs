@@ -5,7 +5,6 @@ import Jobcontext from './utils/Jobcontext';
 import Home from './pages/Home';
 import MyJobsHeader from './components/MyJobsHeader';
 import SavedJobs from './pages/SavedJobs';
-import ArchivedJobs from './pages/ArchivedJobs';
 import AppliedJobs from './pages/AppliedJobs';
 import JobDetails from './pages/JobDetails';
 
@@ -76,10 +75,6 @@ const App = () => {
       <Route path="/jobs/applied">
         <MyJobsHeader />
         <AppliedJobs />
-      </Route>
-      <Route path="/jobs/archived">
-        <MyJobsHeader />
-        <ArchivedJobs />
       </Route>
       {jobs.map((job) => (
         <Route path={`/jobs/${job.id}`} key={job.id}>

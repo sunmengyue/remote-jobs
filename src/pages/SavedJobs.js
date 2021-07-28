@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import Jobcontext from '../utils/Jobcontext';
-import Job from '../components/Job';
+import SavedJobItem from '../components/SavedJobItem';
 
 const SavedJobs = () => {
   const jobData = useContext(Jobcontext);
@@ -9,9 +9,8 @@ const SavedJobs = () => {
   const listSavedJobs = () => {
     if (savedJobs.length) {
       return savedJobs.map((job) => {
-        return <Job key={job.id} job={job} />;
+        return <SavedJobItem job={job} key={job.id} />;
       });
-      <h1>save</h1>;
     } else {
       return (
         <h3 style={{ fontWeight: '400' }}>

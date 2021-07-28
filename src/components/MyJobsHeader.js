@@ -23,9 +23,6 @@ const MyJobsHeader = () => {
           <Link className="list__item" to="/jobs/applied">
             Applied
           </Link>
-          <Link className="list__item" to="/jobs/archived">
-            Archived
-          </Link>
         </ul>
       </nav>
     </div>
