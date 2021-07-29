@@ -1,12 +1,8 @@
-import React, { useContext } from 'react';
-import Jobcontext from '../utils/Jobcontext';
+import React from 'react';
 import Link from '../components/Link';
 import '../css/MyJobsHeader.css';
 
 const MyJobsHeader = () => {
-  const jobData = useContext(Jobcontext);
-  const { setTypeOfSaves } = jobData;
-
   return (
     <div className="page myJobs__header">
       <Link className="toHome" to="/">
@@ -21,10 +17,10 @@ const MyJobsHeader = () => {
       <h2 className="myJobs">My Jobs</h2>
       <nav>
         <ul className="saved__list">
-          <li className="list__item" onClick={() => setTypeOfSaves('Saved')}>
+          <li className="list__item">
             <Link to="/jobs/saved">Saved</Link>
           </li>
-          <li className="list__item" onClick={() => setTypeOfSaves('Applied')}>
+          <li className="list__item">
             <Link to="/jobs/applied">Applied</Link>
           </li>
         </ul>

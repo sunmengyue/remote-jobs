@@ -5,7 +5,7 @@ import '../css/JobDetails.css';
 
 const JobDetails = () => {
   const jobdata = useContext(Jobcontext);
-  const { jobs, savedJobs, setSavedJobs, filterHandler } = jobdata;
+  const { jobs, savedJobs, setSavedJobs } = jobdata;
   const jobId = parseInt(
     window.location.pathname.substring(
       window.location.pathname.lastIndexOf('/') + 1,
@@ -16,7 +16,6 @@ const JobDetails = () => {
   const saveJob = (id) => {
     if (!savedJobs.find((job) => job.id === id)) {
       setSavedJobs([...savedJobs, { ...jobObj, isApplied: false }]);
-      filterHandler();
     }
     if (savedJobs.find((job) => job.id === id)) {
       setSavedJobs(() => {
