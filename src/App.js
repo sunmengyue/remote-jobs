@@ -15,7 +15,6 @@ const App = () => {
   const [postsPerPage] = useState(15);
   const [params, setParams] = useState({});
   const [savedJobs, setSavedJobs] = useState([]);
-  const [filteredSaves, setFilteredSaves] = useState([]);
 
   // fetch data
   useEffect(() => {
@@ -31,7 +30,6 @@ const App = () => {
       .catch((error) => {
         console.log(error);
       });
-    filterHandler();
     return () => {
       cancelToken.cancel();
     };
@@ -46,22 +44,6 @@ const App = () => {
   const popState = () => {
     const navEvent = new PopStateEvent('popstate');
     window.dispatchEvent(navEvent);
-  };
-
-  // set filtered saved jobs based on pathname
-  const filterHandler = () => {
-    console.log(window.location.pathname);
-    switch (window.location.pathname) {
-      case '/jobs/saved':
-        setFilteredSaves(savedJobs?.filter((job) => job.isApplied === false));
-        break;
-      case '/jobs/applied':
-        setFilteredSaves(savedJobs?.filter((job) => job.isApplied === true));
-        break;
-      default:
-        setFilteredSaves(savedJobs);
-        break;
-    }
   };
 
   return (
@@ -80,7 +62,6 @@ const App = () => {
         setPages,
         savedJobs,
         setSavedJobs,
-        filteredSaves,
       }}
     >
       <Route path="/">

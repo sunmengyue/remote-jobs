@@ -1,8 +1,20 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import Jobcontext from '../utils/Jobcontext';
+
 import Link from '../components/Link';
 import '../css/SavedJobItem.css';
 
 const SavedJobItem = ({ job }) => {
+  const jobData = useContext(Jobcontext);
+  const { savedJobs, setSavedJobs } = jobData;
+
+  const markAsApplied = (id) => {
+    const updatedSavedJobs = savedJobs.map((job) =>
+      job.id === id ? { ...job, isApplied: true } : job,
+    );
+    setSavedJobs(updatedSavedJobs);
+  };
+
   return (
     <div className="job">
       <div className="job__content">
@@ -37,7 +49,14 @@ const SavedJobItem = ({ job }) => {
         >
           Apply Now
         </a>
-        <button className="job__step job__step__second">Mark as applied</button>
+        <button
+          className="job__step job__step__second"
+          onClick={() => {
+            markAsApplied(job.id);
+          }}
+        >
+          Mark as applied
+        </button>
         <p>✕</p>
       </div>
     </div>

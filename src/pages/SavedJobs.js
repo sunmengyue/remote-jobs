@@ -4,13 +4,13 @@ import SavedJobItem from '../components/SavedJobItem';
 
 const SavedJobs = () => {
   const jobData = useContext(Jobcontext);
-  const { savedJobs, filteredSaves } = jobData;
+  const { savedJobs } = jobData;
 
   const listSavedJobs = () => {
-    if (savedJobs.length) {
-      return filteredSaves.map((job) => {
-        return <SavedJobItem job={job} key={job.id} />;
-      });
+    if (savedJobs.length > 0) {
+      return savedJobs.map((job) => (
+        <>{!job.isApplied && <SavedJobItem job={job} key={job.id} />}</>
+      ));
     } else {
       return (
         <h3 style={{ fontWeight: '400' }}>

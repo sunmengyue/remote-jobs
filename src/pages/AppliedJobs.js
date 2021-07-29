@@ -4,11 +4,11 @@ import AppliedJobItem from '../components/AppliedJobItem';
 
 const AppliedJobs = () => {
   const jobData = useContext(Jobcontext);
-  const { filteredSaves } = jobData;
+  const { savedJobs } = jobData;
 
   const listAppliedJobs = () => {
-    return filteredSaves.map((job) => (
-      <AppliedJobItem job={job} key={job.id} />
+    return savedJobs.map((job) => (
+      <>{job.isApplied && <AppliedJobItem job={job} key={job.id} />}</>
     ));
   };
 

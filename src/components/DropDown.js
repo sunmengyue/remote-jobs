@@ -1,12 +1,10 @@
 import axios from 'axios';
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import '../css/DropDown.css';
 
 const DropDown = () => {
   const [categories, setCategories] = useState([]);
   const [isOpen, setIsOpen] = useState(false);
-  const ulRef = useRef();
-  const inputRef = useRef();
 
   const onInputChange = (e) => {
     const newCategories = categories.filter((cat) =>
@@ -24,13 +22,7 @@ const DropDown = () => {
   const listCategories = () => {
     return categories.map((category) => {
       return (
-        <li
-          key={category.id}
-          className="dropdown__list__item"
-          onClick={() => {
-            inputRef.current.value = category.name;
-          }}
-        >
+        <li key={category.id} className="dropdown__list__item">
           {category.name}
         </li>
       );
@@ -41,19 +33,22 @@ const DropDown = () => {
     <div className="form">
       <div className="field">
         <input
+          onFocus={() => {
+            setIsOpen(true);
+          }}
+          onBlur={() => {
+            setIsOpen(false);
+          }}
           type="text"
           name="category"
-          ref={inputRef}
-          onChange={onInputChange}
+          onChange={(e) => {
+            onInputChange(e);
+          }}
           placeholder="category"
         />
         <i className="fas fa-caret-down"></i>
       </div>
-      {isOpen && (
-        <ul className="dropdown__list" ref={ulRef}>
-          {listCategories()}
-        </ul>
-      )}
+      {isOpen && <ul className="dropdown__list">{listCategories()}</ul>}
     </div>
   );
 };
