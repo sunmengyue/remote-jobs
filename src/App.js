@@ -14,8 +14,10 @@ const App = () => {
   const [pages, setPages] = useState([1, 2, 3]);
   const [postsPerPage] = useState(15);
   const [params, setParams] = useState({});
-  const [savedJobs, setSavedJobs] = useState([]);
   const [input, setInput] = useState('');
+
+  const initialSaves = JSON.parse(localStorage.getItem('jobs')) || [];
+  const [savedJobs, setSavedJobs] = useState(initialSaves);
 
   // fetch data
   useEffect(() => {
@@ -61,6 +63,15 @@ const App = () => {
     setSavedJobs(updatedSavedJobs);
   };
 
+  // save to local storage
+  const saveToLocal = () => {
+    localStorage.setItem('jobs', JSON.stringify(savedJobs));
+  };
+
+  useEffect(() => {
+    saveToLocal();
+  }, [savedJobs]);
+
   return (
     <Jobcontext.Provider
       value={{
@@ -81,6 +92,7 @@ const App = () => {
         setInput,
         markAsApplied,
         deleteSaved,
+        saveToLocal,
       }}
     >
       <Route path="/">
