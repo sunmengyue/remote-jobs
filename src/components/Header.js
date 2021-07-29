@@ -1,12 +1,12 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext } from 'react';
 import Jobcontext from '../utils/Jobcontext';
 import DropDown from './DropDown';
 import '../css/Header.css';
 
 const Header = () => {
-  const [input, setInput] = useState('');
   const jobData = useContext(Jobcontext);
-  const { setParams, setCurrentPage, setPages } = jobData;
+  const { params, setParams, setCurrentPage, setPages, input, setInput } =
+    jobData;
 
   const handleParamChange = (e) => {
     // this does not work on form because the e.target is not an input
@@ -30,7 +30,7 @@ const Header = () => {
             <input
               type="text"
               placeholder="Title, companies, expertise, or benefits"
-              value={input}
+              value={params.search}
               name="search"
               onChange={(e) => {
                 setInput(e.target.value);

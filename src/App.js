@@ -15,6 +15,7 @@ const App = () => {
   const [postsPerPage] = useState(15);
   const [params, setParams] = useState({});
   const [savedJobs, setSavedJobs] = useState([]);
+  const [input, setInput] = useState('');
 
   // fetch data
   useEffect(() => {
@@ -62,6 +63,8 @@ const App = () => {
         setPages,
         savedJobs,
         setSavedJobs,
+        input,
+        setInput,
       }}
     >
       <Route path="/">

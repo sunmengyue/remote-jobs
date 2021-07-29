@@ -1,8 +1,12 @@
 import axios from 'axios';
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
+import Jobcontext from '../utils/Jobcontext';
 import '../css/DropDown.css';
 
 const DropDown = () => {
+  const jobData = useContext(Jobcontext);
+  const { params, setParams, setPages, setCurrentPage, setInput } = jobData;
+
   const [categories, setCategories] = useState([]);
   const [isOpen, setIsOpen] = useState(false);
 
@@ -20,13 +24,28 @@ const DropDown = () => {
   }, []);
 
   const listCategories = () => {
-    return categories.map((category) => {
-      return (
-        <li key={category.id} className="dropdown__list__item">
-          {category.name}
-        </li>
-      );
-    });
+    return categories.map((category) => (
+      <li
+        key={category.id}
+        className="dropdown__list__item"
+        onClick={() => {
+          console.log('clicked');
+        }}
+      >
+        {category.name}
+      </li>
+    ));
+  };
+
+  const handleSubmit = (e, category) => {
+    console.log(e);
+    // setInput(e.target.innerText);
+    // setParams((prevParams) => ({
+    //   ...prevParams,
+    //   [e.target.name]: category.slug,
+    // }));
+    // setCurrentPage(1);
+    // setPages([1, 2, 3]);
   };
 
   return (
@@ -45,10 +64,26 @@ const DropDown = () => {
             onInputChange(e);
           }}
           placeholder="category"
+          value={params.category}
         />
         <i className="fas fa-caret-down"></i>
       </div>
-      {isOpen && <ul className="dropdown__list">{listCategories()}</ul>}
+      {isOpen && (
+        <ul className="dropdown__list">
+          {categories.map((category) => (
+            <li
+              key={category.id}
+              className="dropdown__list__item"
+              onClick={() => {
+                console.log('clicked');
+              }}
+            >
+              {category.name}
+            </li>
+          ))}
+          ;
+        </ul>
+      )}
     </div>
   );
 };

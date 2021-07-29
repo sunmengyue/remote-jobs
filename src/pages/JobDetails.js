@@ -33,6 +33,10 @@ const JobDetails = () => {
       </Link>
       <div className="job__details">
         <div className="control">
+          <Link className="back" to="/">
+            <i className="fas fa-arrow-circle-left"></i>
+            <p>back to search</p>
+          </Link>
           <Link to="/jobs/saved" className="saved__jobs">
             {savedJobs.length ? (
               <i className="fas fa-folder fa-2x"></i>
@@ -41,10 +45,7 @@ const JobDetails = () => {
             )}
             <h3> My Saved Jobs : {savedJobs.length} </h3>
           </Link>
-          <Link className="back" to="/">
-            <i className="fas fa-arrow-circle-left"></i>
-            <p>back to search</p>
-          </Link>
+
           <div className="action">
             <a
               className="apply"
