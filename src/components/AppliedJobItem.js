@@ -1,7 +1,11 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import Jobcontext from '../utils/Jobcontext';
 import Link from './Link';
 
 const AppliedJobItem = ({ job }) => {
+  const jobData = useContext(Jobcontext);
+  const { deleteSaved } = jobData;
+
   return (
     <div className="job">
       <div className="job__content">
@@ -28,7 +32,13 @@ const AppliedJobItem = ({ job }) => {
         {job.publication_date.slice(0, 10)}
       </div>
       <div className="job__action">
-        <p>✕</p>
+        <p
+          onClick={() => {
+            deleteSaved(job.id);
+          }}
+        >
+          ✕
+        </p>
       </div>
     </div>
   );

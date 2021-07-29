@@ -47,6 +47,20 @@ const App = () => {
     window.dispatchEvent(navEvent);
   };
 
+  // For the 3rd page mark as applied button
+  const markAsApplied = (id) => {
+    const updatedSavedJobs = savedJobs.map((job) =>
+      job.id === id ? { ...job, isApplied: true } : job,
+    );
+    setSavedJobs(updatedSavedJobs);
+  };
+
+  // For the 3rd page delete button
+  const deleteSaved = (id) => {
+    const updatedSavedJobs = savedJobs.filter((job) => job.id !== id);
+    setSavedJobs(updatedSavedJobs);
+  };
+
   return (
     <Jobcontext.Provider
       value={{
@@ -65,6 +79,8 @@ const App = () => {
         setSavedJobs,
         input,
         setInput,
+        markAsApplied,
+        deleteSaved,
       }}
     >
       <Route path="/">

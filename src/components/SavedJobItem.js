@@ -6,14 +6,7 @@ import '../css/SavedJobItem.css';
 
 const SavedJobItem = ({ job }) => {
   const jobData = useContext(Jobcontext);
-  const { savedJobs, setSavedJobs } = jobData;
-
-  const markAsApplied = (id) => {
-    const updatedSavedJobs = savedJobs.map((job) =>
-      job.id === id ? { ...job, isApplied: true } : job,
-    );
-    setSavedJobs(updatedSavedJobs);
-  };
+  const { markAsApplied, deleteSaved } = jobData;
 
   return (
     <div className="job">
@@ -57,7 +50,13 @@ const SavedJobItem = ({ job }) => {
         >
           Mark as applied
         </button>
-        <p>✕</p>
+        <p
+          onClick={() => {
+            deleteSaved(job.id);
+          }}
+        >
+          ✕
+        </p>
       </div>
     </div>
   );

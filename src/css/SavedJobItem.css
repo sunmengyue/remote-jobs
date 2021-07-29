@@ -50,4 +50,5 @@
 
 .job__action > p {
   color: #282538;
+  cursor: pointer;
 }
