@@ -10,7 +10,6 @@
 
 .saved__jobs {
   width: fit-content;
-  text-decoration: none;
   color: #282538;
   display: flex;
   justify-content: flex-start;

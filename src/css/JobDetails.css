@@ -1,11 +1,9 @@
 .toHome {
-  text-decoration: none;
   color: #282538;
 }
 
 .back {
   color: #334680;
-  text-decoration: none;
   display: flex;
   align-items: center;
 
@@ -85,7 +83,6 @@
 }
 
 .action > .apply {
-  text-decoration: none;
   margin-right: 15px;
   padding: 10px 20px;
   background-color: #0198e1;

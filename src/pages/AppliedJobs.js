@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+import { v4 as uuidv4 } from 'uuid';
 import Jobcontext from '../utils/Jobcontext';
 import AppliedJobItem from '../components/AppliedJobItem';
 
@@ -8,7 +9,7 @@ const AppliedJobs = () => {
 
   const listAppliedJobs = () => {
     return savedJobs.map((job) => (
-      <>{job.isApplied && <AppliedJobItem job={job} key={job.id} />}</>
+      <>{job.isApplied && <AppliedJobItem job={job} key={uuidv4()} />}</>
     ));
   };
 
