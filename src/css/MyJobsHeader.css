@@ -7,6 +7,10 @@
   text-align: left;
 }
 
+.myJobs__header > .toHome {
+  margin-bottom: 0;
+}
+
 .saved__list {
   display: flex;
   list-style: none;

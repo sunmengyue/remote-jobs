@@ -39,6 +39,10 @@
   font-size: 3.4rem;
 }
 
+.banner h1 > span {
+  font-weight: 300;
+}
+
 .banner > p {
   margin-bottom: 40px;
   font-size: 1.2rem;

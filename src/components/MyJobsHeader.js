@@ -1,6 +1,7 @@
 import React, { useRef, useEffect } from 'react';
 import Link from '../components/Link';
 import '../css/MyJobsHeader.css';
+import logo from '../images/remote_optimal_logo.png';
 
 const MyJobsHeader = () => {
   const savedRef = useRef();
@@ -17,6 +18,7 @@ const MyJobsHeader = () => {
   return (
     <div className="page myJobs__header">
       <Link className="toHome" to="/">
+        <img src={logo} alt="logo" />
         <h1>
           Remote <span>Optimal</span>
         </h1>

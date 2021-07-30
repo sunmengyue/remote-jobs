@@ -29,7 +29,9 @@ const Header = () => {
         </div>
         <div className="logo">
           <img src={logo} alt="logo" />
-          <h1>Remote Optimal</h1>
+          <h1>
+            Remote <span>Optimal</span>
+          </h1>
         </div>
         <p>You decide where to work and live</p>
         <div className="forms">
