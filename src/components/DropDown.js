@@ -38,13 +38,14 @@ const DropDown = () => {
   };
 
   const handleSubmit = (e, category) => {
-    setInput(e.target.innerText);
+    setInput(e.target.textContent);
     setParams((prevParams) => ({
       ...prevParams,
       category: category.slug,
     }));
     setCurrentPage(1);
     setPages([1, 2, 3]);
+    setIsOpen(false);
   };
 
   return (
@@ -62,10 +63,15 @@ const DropDown = () => {
           onChange={(e) => {
             onInputChange(e);
           }}
-          placeholder="category"
+          placeholder="job categories: click to see and hide"
           value={params.category}
         />
-        <i className="fas fa-caret-down"></i>
+
+        {!isOpen ? (
+          <i className="fas fa-caret-down"></i>
+        ) : (
+          <i className="fas fa-caret-up"></i>
+        )}
       </div>
       {isOpen && <ul className="dropdown__list">{listCategories()}</ul>}
     </div>

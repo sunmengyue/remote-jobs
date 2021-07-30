@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext } from 'react';
 import Jobcontext from '../utils/Jobcontext';
 import Link from '../components/Link';
 import '../css/JobDetails.css';

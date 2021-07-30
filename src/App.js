@@ -69,6 +69,7 @@ const App = () => {
 
   useEffect(() => {
     saveToLocal();
+    //eslint-disable-next-line
   }, [savedJobs]);
 
   return (
