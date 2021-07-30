@@ -1,5 +1,13 @@
 .toHome {
   color: #282538;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-start;
+  margin-bottom: 40px;
+}
+
+.toHome > img {
+  width: 140px;
 }
 
 .back {

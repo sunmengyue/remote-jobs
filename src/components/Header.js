@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import Jobcontext from '../utils/Jobcontext';
 import DropDown from './DropDown';
 import '../css/Header.css';
+import logo from '../images/remote_optimal_logo.png';
 
 const Header = () => {
   const jobData = useContext(Jobcontext);
@@ -26,7 +27,10 @@ const Header = () => {
         <div className="header__right">
           <i className="fas fa-user-circle fa-2x"></i>
         </div>
-        <h1>Remote Optimal</h1>
+        <div className="logo">
+          <img src={logo} alt="logo" />
+          <h1>Remote Optimal</h1>
+        </div>
         <p>You decide where to work and live</p>
         <div className="forms">
           <form className="form">

@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import Jobcontext from '../utils/Jobcontext';
 import Link from '../components/Link';
 import '../css/JobDetails.css';
+import logo from '../images/remote_optimal_logo.png';
 
 const JobDetails = () => {
   const jobdata = useContext(Jobcontext);
@@ -27,6 +28,7 @@ const JobDetails = () => {
   return (
     <div className="page">
       <Link className="toHome" to="/">
+        <img src={logo} alt="logo" />
         <h1>
           Remote <span>Optimal</span>
         </h1>

@@ -22,10 +22,21 @@
   color: rgba(255, 255, 255, 0.7);
 }
 
-.banner > h1 {
-  margin-bottom: 15px;
+.banner > .logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: translateX(-4%);
+}
+
+.logo > img {
+  width: 150px;
+  filter: brightness(220%);
+}
+
+.banner h1 {
   letter-spacing: 1.5px;
-  font-size: 3rem;
+  font-size: 3.4rem;
 }
 
 .banner > p {
