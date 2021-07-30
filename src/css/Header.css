@@ -17,8 +17,13 @@
   background-position: top;
 }
 
+.banner > .header__right {
+  text-align: right;
+  color: rgba(255, 255, 255, 0.7);
+}
+
 .banner > h1 {
-  margin-bottom: 7px;
+  margin-bottom: 15px;
   letter-spacing: 1.5px;
   font-size: 3rem;
 }

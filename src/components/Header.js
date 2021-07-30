@@ -23,6 +23,9 @@ const Header = () => {
   return (
     <div className="header">
       <div className="banner">
+        <div className="header__right">
+          <i className="fas fa-user-circle fa-2x"></i>
+        </div>
         <h1>Remote Optimal</h1>
         <p>You decide where to work and live</p>
         <div className="forms">
