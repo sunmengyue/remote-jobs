@@ -22,6 +22,12 @@
   color: rgba(255, 255, 255, 0.7);
 }
 
+.banner > .header__right > img {
+  width: 60px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
 .banner > .logo {
   display: flex;
   align-items: center;
@@ -31,7 +37,7 @@
 
 .logo > img {
   width: 150px;
-  filter: brightness(220%);
+  filter: brightness(85%);
 }
 
 .banner h1 {
