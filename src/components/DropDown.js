@@ -28,8 +28,8 @@ const DropDown = () => {
       <li
         key={category.id}
         className="dropdown__list__item"
-        onClick={() => {
-          console.log('clicked');
+        onClick={(e) => {
+          handleSubmit(e, category);
         }}
       >
         {category.name}
@@ -38,26 +38,25 @@ const DropDown = () => {
   };
 
   const handleSubmit = (e, category) => {
-    console.log(e);
-    // setInput(e.target.innerText);
-    // setParams((prevParams) => ({
-    //   ...prevParams,
-    //   [e.target.name]: category.slug,
-    // }));
-    // setCurrentPage(1);
-    // setPages([1, 2, 3]);
+    setInput(e.target.innerText);
+    setParams((prevParams) => ({
+      ...prevParams,
+      category: category.slug,
+    }));
+    setCurrentPage(1);
+    setPages([1, 2, 3]);
   };
 
   return (
     <div className="form">
       <div className="field">
         <input
-          onFocus={() => {
-            setIsOpen(true);
+          onClick={() => {
+            setIsOpen(!isOpen);
           }}
-          onBlur={() => {
-            setIsOpen(false);
-          }}
+          // onBlur={() => {
+          //   setIsOpen(false);
+          // }}
           type="text"
           name="category"
           onChange={(e) => {
@@ -68,22 +67,7 @@ const DropDown = () => {
         />
         <i className="fas fa-caret-down"></i>
       </div>
-      {isOpen && (
-        <ul className="dropdown__list">
-          {categories.map((category) => (
-            <li
-              key={category.id}
-              className="dropdown__list__item"
-              onClick={() => {
-                console.log('clicked');
-              }}
-            >
-              {category.name}
-            </li>
-          ))}
-          ;
-        </ul>
-      )}
+      {isOpen && <ul className="dropdown__list">{listCategories()}</ul>}
     </div>
   );
 };

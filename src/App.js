@@ -15,7 +15,6 @@ const App = () => {
   const [postsPerPage] = useState(15);
   const [params, setParams] = useState({});
   const [input, setInput] = useState('');
-
   const initialSaves = JSON.parse(localStorage.getItem('jobs')) || [];
   const [savedJobs, setSavedJobs] = useState(initialSaves);
 
