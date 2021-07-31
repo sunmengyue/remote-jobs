@@ -44,6 +44,8 @@
 
 ## About The Project
 
+[click here](https://remote-optimal.web.app/) to see the app demo
+
 ![Overview](./wiki/home.png)
 ![Sign In](./wiki/signin.png)
 ![Search](./wiki/search.png)
@@ -52,7 +54,6 @@
 
 As a user, you can:
 
-- [click here](https://remote-optimal.web.app/) to see the app demo
 - browse thousands of remote jobs on multiple pages fluently
 - search remote jobs by company name, description, title, benefits, and category
 - read, apply, save, and manage your job of interest
@@ -62,6 +63,7 @@ As a user, you can:
 
 - [React](https://reactjs.org/)
 - [React Context API](https://reactjs.org/docs/context.html)
+- [Firebase](https://firebase.google.com/)
 
 <!-- GETTING STARTED -->
 
@@ -119,5 +121,6 @@ Project Link: [https://github.com/sunmengyue/remote-jobs](https://github.com/sun
 
 - [Remotive Job API](https://remotive.io/api-documentation)
 - [React](https://reactjs.org/)
+- [Firebase](https://firebase.google.com/)
 - [Font Awesome](https://fontawesome.com)
 - [Marked - a markdown parser](https://github.com/chjj/marked)
