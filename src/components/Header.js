@@ -48,7 +48,7 @@ const Header = () => {
             <input
               type="text"
               placeholder="Title, companies, expertise, or benefits"
-              value={params.search}
+              value={input}
               name="search"
               onChange={(e) => {
                 setInput(e.target.value);

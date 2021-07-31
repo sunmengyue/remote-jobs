@@ -11,6 +11,10 @@ const DropDown = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const onInputChange = (e) => {
+    if (e.target.value === '') {
+      setCategories(categories);
+    }
+
     const newCategories = categories.filter((cat) =>
       cat.slug.toLowerCase().includes(e.target.value.toLowerCase()),
     );
