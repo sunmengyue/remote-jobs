@@ -5,20 +5,21 @@ import '../css/DropDown.css';
 
 const DropDown = () => {
   const jobData = useContext(Jobcontext);
-  const { params, setParams, setPages, setCurrentPage, setInput } = jobData;
+  const { setParams, setPages, setCurrentPage, setInput, input } = jobData;
 
   const [categories, setCategories] = useState([]);
+  const [filteredCategories, setFilteredCategories] = useState([]);
   const [isOpen, setIsOpen] = useState(false);
 
   const onInputChange = (e) => {
-    if (e.target.value === '') {
-      setCategories(categories);
+    setInput(e.target.value);
+    if (!e.target.value) {
+      setFilteredCategories(categories);
     }
-
     const newCategories = categories.filter((cat) =>
       cat.slug.toLowerCase().includes(e.target.value.toLowerCase()),
     );
-    setCategories(newCategories);
+    setFilteredCategories(newCategories);
   };
 
   useEffect(() => {
@@ -28,7 +29,7 @@ const DropDown = () => {
   }, []);
 
   const listCategories = () => {
-    return categories.map((category) => (
+    return filteredCategories.map((category) => (
       <li
         key={category.id}
         className="dropdown__list__item"
@@ -68,7 +69,7 @@ const DropDown = () => {
             onInputChange(e);
           }}
           placeholder="job categories: click to see and hide"
-          value={params.category}
+          value={input}
         />
 
         {!isOpen ? (
