@@ -5,11 +5,19 @@ import '../css/DropDown.css';
 
 const DropDown = () => {
   const jobData = useContext(Jobcontext);
-  const { setParams, setPages, setCurrentPage, setInput, input } = jobData;
+  const { params, setParams, setPages, setCurrentPage, setInput, input } =
+    jobData;
 
   const [categories, setCategories] = useState([]);
   const [filteredCategories, setFilteredCategories] = useState([]);
   const [isOpen, setIsOpen] = useState(false);
+
+  useEffect(() => {
+    axios.get('https://remotive.io/api/remote-jobs/categories').then((res) => {
+      setCategories(res.data.jobs);
+      setFilteredCategories(res.data.jobs);
+    });
+  }, []);
 
   const onInputChange = (e) => {
     setInput(e.target.value);
@@ -21,12 +29,6 @@ const DropDown = () => {
     );
     setFilteredCategories(newCategories);
   };
-
-  useEffect(() => {
-    axios.get('https://remotive.io/api/remote-jobs/categories').then((res) => {
-      setCategories(res.data.jobs);
-    });
-  }, []);
 
   const listCategories = () => {
     return filteredCategories.map((category) => (
@@ -42,12 +44,18 @@ const DropDown = () => {
     ));
   };
 
+  const handleClick = () => {
+    setInput('');
+    setIsOpen(!isOpen);
+  };
+
   const handleSubmit = (e, category) => {
     setInput(e.target.textContent);
-    setParams((prevParams) => ({
-      ...prevParams,
-      category: category.slug,
-    }));
+    // setParams((prevParams) => ({
+    //   ...prevParams,
+    //   category: category.slug,
+    // }));
+    setParams({ search: '', category: category.slug });
     setCurrentPage(1);
     setPages([1, 2, 3]);
     setIsOpen(false);
@@ -57,12 +65,7 @@ const DropDown = () => {
     <div className="form">
       <div className="field">
         <input
-          onClick={() => {
-            setIsOpen(!isOpen);
-          }}
-          // onBlur={() => {
-          //   setIsOpen(false);
-          // }}
+          onClick={handleClick}
           type="text"
           name="category"
           onChange={(e) => {

@@ -88,3 +88,11 @@
   font-size: 13px;
   margin-left: 10px;
 }
+
+.banner > .search__results {
+  font-family: 'Roboto Slab', serif;
+  margin-top: 10px;
+  margin-left: 50px;
+  align-self: flex-start;
+  font-size: 13px;
+}

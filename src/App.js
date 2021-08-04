@@ -20,8 +20,7 @@ const App = () => {
   const [input, setInput] = useState('');
   const initialSaves = JSON.parse(localStorage.getItem('jobs')) || [];
   const [savedJobs, setSavedJobs] = useState(initialSaves);
-
-  const [user, loading] = useAuthState(auth);
+  const [user] = useAuthState(auth);
 
   // fetch data
   useEffect(() => {
@@ -29,7 +28,7 @@ const App = () => {
     axios
       .get('https://remotive.io/api/remote-jobs', {
         cancelToken: cancelToken.token,
-        params: { ...params, limit: 1000 },
+        params: { ...params, limit: 1500 },
       })
       .then((res) => {
         setJobs(res.data.jobs);

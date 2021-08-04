@@ -5,22 +5,27 @@ import '../css/Header.css';
 import logo from '../images/remote_optimal_logo.png';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { auth } from '../firebase';
+import Jobs from './Jobs';
 
 const Header = () => {
   const [user] = useAuthState(auth);
   const jobData = useContext(Jobcontext);
-  const { params, setParams, setCurrentPage, setPages, input, setInput } =
+  const { params, jobs, setParams, setCurrentPage, setPages, input, setInput } =
     jobData;
 
   const handleParamChange = (e) => {
     // this does not work on form because the e.target is not an input
+    e.preventDefault();
+    const value = e.target.value;
+    const param = e.target.name;
+    setCurrentPage(1);
+    setPages([1, 2, 3]);
+    setParams({ [param]: value, category: '' });
+  };
+
+  const preventRefresh = (e) => {
     if (e.keyCode === 13) {
       e.preventDefault();
-      const value = e.target.value;
-      const param = e.target.name;
-      setCurrentPage(1);
-      setPages([1, 2, 3]);
-      setParams((prevParams) => ({ ...prevParams, [param]: value }));
     }
   };
 
@@ -48,15 +53,16 @@ const Header = () => {
             <input
               type="text"
               placeholder="Title, companies, expertise, or benefits"
-              value={input}
+              value={params.search}
               name="search"
-              onChange={(e) => {
-                setInput(e.target.value);
-              }}
-              onKeyDown={handleParamChange}
+              onChange={handleParamChange}
+              onKeyDown={preventRefresh}
             />
           </form>
           <DropDown />
+        </div>
+        <div className="search__results">
+          {jobs.length ? `results: ${jobs.length} jobs` : `Loading...`}
         </div>
       </div>
     </div>
