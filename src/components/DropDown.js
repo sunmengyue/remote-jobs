@@ -75,7 +75,7 @@ const DropDown = () => {
           onChange={(e) => {
             onInputChange(e);
           }}
-          placeholder="job categories: click to see and hide"
+          placeholder="job categories"
           value={input}
         />
 
