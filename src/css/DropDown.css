@@ -3,11 +3,11 @@
   align-items: center;
 }
 
-.field > input:focus {
+.field input:focus {
   outline: none;
 }
 
-.field > .fas {
+.field .fas {
   color: #a0a0a0;
 }
 

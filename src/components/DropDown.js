@@ -5,8 +5,7 @@ import '../css/DropDown.css';
 
 const DropDown = () => {
   const jobData = useContext(Jobcontext);
-  const { params, setParams, setPages, setCurrentPage, setInput, input } =
-    jobData;
+  const { setParams, setPages, setCurrentPage, setInput, input } = jobData;
 
   const [categories, setCategories] = useState([]);
   const [filteredCategories, setFilteredCategories] = useState([]);
@@ -35,7 +34,7 @@ const DropDown = () => {
       <li
         key={category.id}
         className="dropdown__list__item"
-        onClick={(e) => {
+        onMouseDown={(e) => {
           handleSubmit(e, category);
         }}
       >
@@ -44,9 +43,13 @@ const DropDown = () => {
     ));
   };
 
-  const handleClick = () => {
+  const openDropDown = () => {
     setInput('');
-    setIsOpen(!isOpen);
+    setIsOpen(true);
+  };
+
+  const closeDropDown = () => {
+    setIsOpen(false);
   };
 
   const handleSubmit = (e, category) => {
@@ -65,7 +68,8 @@ const DropDown = () => {
     <div className="form">
       <div className="field">
         <input
-          onClick={handleClick}
+          onMouseDown={openDropDown}
+          onBlur={closeDropDown}
           type="text"
           name="category"
           onChange={(e) => {

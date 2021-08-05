@@ -50,7 +50,7 @@
 }
 
 .banner > p {
-  margin-bottom: 40px;
+  margin-bottom: 30px;
   font-size: 1.2rem;
 }
 
@@ -60,7 +60,7 @@
   justify-content: center;
 }
 
-.forms > .form {
+.forms .form {
   background-color: #fff;
   padding: 10px;
   width: 380px;
@@ -68,11 +68,11 @@
   border: none;
 }
 
-.forms > .form:first-of-type {
+.forms .form:first-of-type {
   margin-right: 30px;
 }
 
-.forms > .form input {
+.forms .form input {
   width: 100%;
   border: none;
   padding: 5px 20px;
@@ -91,8 +91,7 @@
 
 .banner > .search__results {
   font-family: 'Roboto Slab', serif;
-  margin-top: 10px;
-  margin-left: 50px;
-  align-self: flex-start;
-  font-size: 13px;
+  margin-bottom: 15px;
+  align-self: center;
+  font-size: 1rem;
 }

@@ -5,13 +5,11 @@ import '../css/Header.css';
 import logo from '../images/remote_optimal_logo.png';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { auth } from '../firebase';
-import Jobs from './Jobs';
 
 const Header = () => {
   const [user] = useAuthState(auth);
   const jobData = useContext(Jobcontext);
-  const { params, jobs, setParams, setCurrentPage, setPages, input, setInput } =
-    jobData;
+  const { params, jobs, setParams, setCurrentPage, setPages } = jobData;
 
   const handleParamChange = (e) => {
     // this does not work on form because the e.target is not an input
@@ -48,6 +46,9 @@ const Header = () => {
           </h1>
         </div>
         <p>You decide where to work and live</p>
+        <div className="search__results">
+          {jobs.length ? `results: ${jobs.length} jobs` : `Loading...`}
+        </div>
         <div className="forms">
           <form className="form">
             <input
@@ -60,9 +61,6 @@ const Header = () => {
             />
           </form>
           <DropDown />
-        </div>
-        <div className="search__results">
-          {jobs.length ? `results: ${jobs.length} jobs` : `Loading...`}
         </div>
       </div>
     </div>

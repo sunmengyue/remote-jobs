@@ -12,7 +12,7 @@ const Login = () => {
   return (
     <div className="login__container">
       <div className="login__inner__container">
-        <img src={logo} />
+        <img src={logo} alt="login logo" />
         <h1>
           Sign in to Remote <span>Optimal</span>
         </h1>
