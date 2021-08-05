@@ -46,6 +46,7 @@ const DropDown = () => {
   const openDropDown = () => {
     setInput('');
     setIsOpen(true);
+    setFilteredCategories(categories);
   };
 
   const closeDropDown = () => {
