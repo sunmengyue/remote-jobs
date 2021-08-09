@@ -1,5 +1,32 @@
+@media only screen and (max-width: 1200px) {
+  /* Home page */
+
+  .banner h1 {
+    font-size: 2.8rem;
+  }
+
+  .company__logo,
+  .job__content > .fas {
+    width: 80px;
+  }
+
+  .banner > .logo {
+    transform: none;
+    margin-bottom: 20px;
+  }
+
+  .banner > .logo > img {
+    display: none;
+  }
+
+  .banner > p {
+    font-size: 1rem;
+  }
+}
+
 @media only screen and (max-width: 900px) {
   /* Job detail page */
+
   .page .job__details {
     flex-direction: column;
   }
@@ -27,9 +54,72 @@
   .page {
     padding: 30px 50px;
   }
+
+  /* Home page */
+  .jobs {
+    width: 95%;
+  }
+
+  .forms > .form {
+    padding: 7px;
+  }
+
+  .job__category > .job__tag {
+    font-size: 12px;
+  }
+
+  .job__info > h4 {
+    font-size: 14px;
+  }
+
+  .job__info > p {
+    font-size: 12px;
+  }
+}
+
+@media only screen and (max-width: 690px) {
+  /* Home page */
+  .forms .form:first-of-type {
+    margin-right: 0;
+  }
+
+  .job > .post__time {
+    display: none;
+  }
+  .company__logo,
+  .job__content > .fas {
+    width: 75px;
+  }
+  .job__content {
+    width: 100%;
+    flex: 1;
+  }
+
+  .banner h1 {
+    font-size: 2.5rem;
+  }
+
+  .forms {
+    flex-direction: column;
+    justify-content: space-around;
+  }
+
+  .forms > .form:first-of-type {
+    margin-bottom: 15px;
+  }
+
+  .forms > .form {
+    padding: 5px;
+  }
 }
 
 @media only screen and (max-width: 600px) {
+  /* Home Page */
+  .company__logo,
+  .job__content > .fas {
+    width: 60px;
+  }
+
   /* Job detail page */
   .toHome {
     display: none;
@@ -42,6 +132,17 @@
   }
   h3 {
     font-size: 1rem;
+  }
+
+  /* Home Page */
+
+  .company__logo,
+  .job__content > .fas {
+    display: none;
+  }
+
+  .forms .form {
+    width: 350px;
   }
 
   /* Job detail page */
@@ -65,6 +166,43 @@
   }
   h2 {
     font-size: 1rem;
+  }
+  /* Home Page */
+  .banner .header__right {
+    text-align: center;
+  }
+  .jobs {
+    width: 100%;
+  }
+  .forms .form {
+    width: 300px;
+  }
+
+  .job > .job__category {
+    display: none;
+  }
+  .banner h1 {
+    font-size: 1.8rem;
+  }
+
+  .banner p {
+    font-size: 0.8rem;
+  }
+
+  .banner .search__results {
+    font-size: 0.7rem;
+  }
+}
+
+@media only screen and (max-width: 370px) {
+  /* Home Page */
+  .forms .form {
+    width: 250px;
+    padding: 3px;
+  }
+
+  .forms .form input::placeholder {
+    font-size: 11px;
   }
 }
 
