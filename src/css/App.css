@@ -1,0 +1,75 @@
+@media only screen and (max-width: 900px) {
+  /* Job detail page */
+  .page .job__details {
+    flex-direction: column;
+  }
+
+  .job__details > .control {
+    width: 100%;
+    margin-bottom: 30px;
+  }
+
+  .job__details > .control > .saved__jobs {
+    margin-bottom: 20px;
+  }
+
+  .job__details > .control > .action {
+    justify-content: flex-start;
+  }
+
+  .job__details .jobinfo {
+    width: 100%;
+    margin-top: 45px;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .page {
+    padding: 30px 50px;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  /* Job detail page */
+  .toHome {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 540px) {
+  h2 {
+    font-size: 1.2rem;
+  }
+  h3 {
+    font-size: 1rem;
+  }
+
+  /* Job detail page */
+  .action > .apply {
+    padding: 7px 15px;
+    font-size: 12px;
+  }
+
+  .job__details .jobinfo {
+    margin-top: 15px;
+  }
+
+  .jobinfo__content {
+    font-size: 14px;
+  }
+}
+
+@media only screen and (max-width: 420px) {
+  .page {
+    padding: 15px 30px;
+  }
+  h2 {
+    font-size: 1rem;
+  }
+}
+
+@media only screen and (max-width: 280px) {
+  .jobinfo__content {
+    font-size: 12px;
+  }
+} ;

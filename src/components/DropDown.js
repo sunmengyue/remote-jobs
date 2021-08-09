@@ -5,7 +5,8 @@ import '../css/DropDown.css';
 
 const DropDown = () => {
   const jobData = useContext(Jobcontext);
-  const { setParams, setPages, setCurrentPage, setInput, input } = jobData;
+  const { jobs, setParams, setPages, setCurrentPage, setInput, input } =
+    jobData;
 
   const [categories, setCategories] = useState([]);
   const [filteredCategories, setFilteredCategories] = useState([]);

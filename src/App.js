@@ -10,12 +10,13 @@ import JobDetails from './pages/JobDetails';
 import Login from './pages/Login';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { auth } from './firebase';
+import './css/App.css';
 
 const App = () => {
   const [jobs, setJobs] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [pages, setPages] = useState([1, 2, 3]);
-  const [postsPerPage] = useState(15);
+  const [postsPerPage] = useState(10);
   const [params, setParams] = useState({});
   const [input, setInput] = useState('');
   const initialSaves = JSON.parse(localStorage.getItem('jobs')) || [];

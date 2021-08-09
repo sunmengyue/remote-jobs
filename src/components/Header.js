@@ -28,7 +28,7 @@ const Header = () => {
   };
 
   return (
-    <div className="header">
+    <div className="header z-50">
       <div className="banner">
         <div className="header__right">
           <img
