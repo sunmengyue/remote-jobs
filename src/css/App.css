@@ -48,6 +48,15 @@
     width: 100%;
     margin-top: 45px;
   }
+
+  /* Saved Jobs page */
+  .page {
+    padding: 30px 50px;
+  }
+
+  .toHome h1 {
+    font-size: 3rem;
+  }
 }
 
 @media only screen and (max-width: 768px) {
@@ -111,6 +120,25 @@
   .forms > .form {
     padding: 5px;
   }
+
+  /* Saved Jobs Page */
+  .toHome > img {
+    display: none;
+  }
+
+  .toHome > h1 {
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+  }
+
+  .myJobs {
+    margin: 30px 0 20px;
+  }
+
+  .job__action .job__step {
+    width: 100px;
+    font-size: 11px;
+  }
 }
 
 @media only screen and (max-width: 600px) {
@@ -123,6 +151,18 @@
   /* Job detail page */
   .toHome {
     display: none;
+  }
+
+  .myJobs {
+    font-size: 18px;
+  }
+
+  .saved__list > .list__item {
+    padding: 10px 0 10px 0;
+  }
+
+  .saved__list > .list__item > a {
+    font-size: 1rem;
   }
 }
 
@@ -157,6 +197,12 @@
 
   .jobinfo__content {
     font-size: 14px;
+  }
+}
+
+@media only screen and (max-width: 470px) {
+  .job__action .job__step {
+    width: 80px;
   }
 }
 
@@ -203,6 +249,10 @@
 
   .forms .form input::placeholder {
     font-size: 11px;
+  }
+  /* Saved Job Page */
+  .job__action .job__step {
+    width: 65px;
   }
 }
 
