@@ -19,10 +19,16 @@
 .login__container > .login__inner__container > h1 {
   color: #282538;
   margin-bottom: 25px;
+  font-family: 'Open Sans', sans-serif;
 }
 
 .login__container > .login__inner__container > h1 > span {
-  font-weight: 300;
+  font-family: 'Roboto Slab', sans-serif;
+  font-weight: 400;
+}
+
+.login__container > .login__inner__container > h1 .optimal {
+  font-weight: 200;
 }
 
 .login__container > .login__inner__container > button {

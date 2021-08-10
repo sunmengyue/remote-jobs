@@ -14,7 +14,10 @@ const Login = () => {
       <div className="login__inner__container">
         <img src={logo} alt="login logo" />
         <h1>
-          Sign in to Remote <span>Optimal</span>
+          Sign in to{' '}
+          <span>
+            Remote <span className="optimal">Optimal</span>
+          </span>
         </h1>
         <button onClick={(e) => login(e)}>Sign in with Google</button>
       </div>
