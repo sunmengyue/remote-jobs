@@ -23,16 +23,22 @@ const App = () => {
   const [savedJobs, setSavedJobs] = useState(initialSaves);
   const [user] = useAuthState(auth);
 
+  function decode_utf8(s) {
+    return decodeURIComponent(escape(s));
+  }
   // fetch data
   useEffect(() => {
     const cancelToken = axios.CancelToken.source();
     axios
-      .get('https://remotive.io/api/remote-jobs', {
+      .get('https://remoteok.io/api', {
         cancelToken: cancelToken.token,
-        params: { ...params, limit: 1500 },
       })
-      .then((res) => {
-        setJobs(res.data.jobs);
+      .then((res) => res.data.slice(1))
+      .then((data) => {
+        data.forEach(
+          (item) => (item.description = decode_utf8(item.description)),
+        );
+        setJobs(data);
       })
       .catch((error) => {
         console.log(error);

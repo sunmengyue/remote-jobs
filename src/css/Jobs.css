@@ -1,9 +1,9 @@
 .jobs {
-  margin-top: 50px;
   padding: 30px;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
   width: 85%;
   margin: auto;
   min-width: 60%;

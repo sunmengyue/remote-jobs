@@ -37,6 +37,20 @@
   width: 65%;
 }
 
+.jobinfo__header .job__category {
+  display: flex;
+  flex-wrap: wrap;
+  text-align: left;
+  margin-bottom: 10px;
+}
+
+.jobinfo__header .job__category .job__tag {
+  border: none;
+  padding: 0;
+  margin-right: 20px;
+  cursor: auto;
+}
+
 .jobinfo__header > h2 {
   margin-bottom: 8px;
 }
@@ -46,11 +60,41 @@
 }
 
 .jobinfo__header > .post__time {
-  margin-bottom: 25px;
+  margin-bottom: 8px;
+}
+
+.job__companyLocation {
+  font-size: 14px;
+  margin: 10px 0;
+  color: #b9bdcf;
 }
 
 .jobinfo__header > .logo {
   display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.logo > .logo__container {
+  position: relative;
+  width: 30px;
+  background-color: #fff;
+  margin-top: 15px;
+}
+
+.logo__container > .company__logo {
+  position: absolute;
+  width: full;
+  height: full;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.job__companyName a:hover {
+  text-decoration: underline;
+  color: #334680;
 }
 
 .logo > .company__logo {
@@ -62,17 +106,15 @@
   margin-bottom: 30px;
 }
 
-.job__companyInfo > .job__companyName {
+.job__companyName {
   font-weight: 700;
-  margin-bottom: 5px;
-}
-
-.job__companyInfo > .job__companyLocation {
-  font-size: 12px;
+  font-size: 18px;
+  margin-top: 100px;
 }
 
 .jobinfo__content {
   font-size: 15px;
+  margin-top: 8px;
 }
 
 .control .fa-long-arrow-alt-left {

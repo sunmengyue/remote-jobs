@@ -10,7 +10,7 @@ const SavedJobs = () => {
   const listSavedJobs = () => {
     if (savedJobs.length > 0) {
       return savedJobs.map((job) => (
-        <>{!job.isApplied && <SavedJobItem job={job} key={uuidv4()} />}</>
+        <div key={uuidv4()}>{!job.isApplied && <SavedJobItem job={job} />}</div>
       ));
     } else {
       return (

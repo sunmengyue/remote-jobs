@@ -1,5 +1,6 @@
 .job {
   background-color: #fff;
+  max-width: 1250px;
   padding: 20px;
   border-radius: 6px;
   display: flex;
@@ -8,6 +9,7 @@
   margin-bottom: 30px;
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.05);
   transition: all 0.2s ease;
+  cursor: pointer;
 }
 
 .job:hover {
@@ -55,11 +57,16 @@
 }
 
 .job > .job__category {
-  width: 30%;
-  margin-left: 30px;
+  display: flex;
+  flex-wrap: wrap;
+  width: 45%;
   text-align: left;
 }
 
-.job__category > p:first-of-type {
-  margin-bottom: 4px;
+.job__category > .job__tag {
+  border: 1px solid #b9bdcf;
+  padding: 4px 10px;
+  border-radius: 4px;
+  margin: 4px 4px;
+  cursor: pointer;
 }

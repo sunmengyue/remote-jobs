@@ -9,7 +9,7 @@ const AppliedJobs = () => {
 
   const listAppliedJobs = () => {
     return savedJobs.map((job) => (
-      <>{job.isApplied && <AppliedJobItem job={job} key={uuidv4()} />}</>
+      <div key={uuidv4()}>{job.isApplied && <AppliedJobItem job={job} />}</div>
     ));
   };
 
