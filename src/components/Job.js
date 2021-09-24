@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import '../css/Job.css';
 import Jobcontext from '../utils/Jobcontext';
+import { v4 as uuidv4 } from 'uuid';
 
 const Job = ({ job }) => {
   const jobData = useContext(Jobcontext);
@@ -32,7 +33,12 @@ const Job = ({ job }) => {
         </div>
       </div>
       <div className="job__category">
-        {job.tags && job.tags.map((tag) => <p className="job__tag">{tag}</p>)}
+        {job.tags &&
+          job.tags.map((tag) => (
+            <p className="job__tag" key={uuidv4()}>
+              {tag}
+            </p>
+          ))}
       </div>
       <div className="post__time">
         <i className="fas fa-clock"></i>

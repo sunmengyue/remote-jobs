@@ -14,11 +14,9 @@ const Header = () => {
   const handleParamChange = (e) => {
     // this does not work on form because the e.target is not an input
     e.preventDefault();
-    const value = e.target.value;
-    const param = e.target.name;
     setCurrentPage(1);
     setPages([1, 2, 3]);
-    setParams({ [param]: value, category: '' });
+    setParams(e.target.value);
   };
 
   const preventRefresh = (e) => {
@@ -52,10 +50,11 @@ const Header = () => {
         <div className="forms">
           <form className="form">
             <input
+              onFocus={(e) => (e.target.value = '')}
               type="text"
-              placeholder="Title, companies, expertise, or benefits"
-              value={params.search}
-              name="search"
+              placeholder="Career fields, separate with ',' "
+              value={params}
+              name="tags"
               onChange={handleParamChange}
               onKeyDown={preventRefresh}
             />

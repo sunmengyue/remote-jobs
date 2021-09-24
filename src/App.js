@@ -17,21 +17,22 @@ const App = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [pages, setPages] = useState([1, 2, 3]);
   const [postsPerPage] = useState(10);
-  const [params, setParams] = useState({});
+  const [params, setParams] = useState('');
   const [input, setInput] = useState('');
   const initialSaves = JSON.parse(localStorage.getItem('jobs')) || [];
   const [savedJobs, setSavedJobs] = useState(initialSaves);
   const [user] = useAuthState(auth);
 
+  // fetch data
   function decode_utf8(s) {
     return decodeURIComponent(escape(s));
   }
-  // fetch data
   useEffect(() => {
     const cancelToken = axios.CancelToken.source();
     axios
       .get('https://remoteok.io/api', {
         cancelToken: cancelToken.token,
+        params: { tags: params },
       })
       .then((res) => res.data.slice(1))
       .then((data) => {

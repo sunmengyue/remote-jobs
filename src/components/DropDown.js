@@ -1,21 +1,32 @@
-import axios from 'axios';
+import { v4 as uuidv4 } from 'uuid';
 import React, { useState, useEffect, useContext } from 'react';
 import Jobcontext from '../utils/Jobcontext';
 import '../css/DropDown.css';
 
 const DropDown = () => {
+  const categories = [
+    'software',
+    'customer support',
+    'design',
+    'marketing',
+    'sales',
+    'business',
+    'data',
+    'devops',
+    'hr',
+    'teaching',
+    'health',
+    'non tech',
+  ];
   const jobData = useContext(Jobcontext);
-  const { setParams, setPages, setCurrentPage, setInput, input } = jobData;
+  const { params, setParams, setPages, setCurrentPage, setInput, input } =
+    jobData;
 
-  const [categories, setCategories] = useState([]);
   const [filteredCategories, setFilteredCategories] = useState([]);
   const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
-    axios.get('https://remotive.io/api/remote-jobs/categories').then((res) => {
-      setCategories(res.data.jobs);
-      setFilteredCategories(res.data.jobs);
-    });
+    setFilteredCategories(categories);
   }, []);
 
   const onInputChange = (e) => {
@@ -24,7 +35,7 @@ const DropDown = () => {
       setFilteredCategories(categories);
     }
     const newCategories = categories.filter((cat) =>
-      cat.slug.toLowerCase().includes(e.target.value.toLowerCase()),
+      cat.toLowerCase().includes(e.target.value.toLowerCase()),
     );
     setFilteredCategories(newCategories);
   };
@@ -32,13 +43,13 @@ const DropDown = () => {
   const listCategories = () => {
     return filteredCategories.map((category) => (
       <li
-        key={category.id}
+        key={uuidv4()}
         className="dropdown__list__item"
         onMouseDown={(e) => {
           handleSubmit(e, category);
         }}
       >
-        {category.name}
+        {category}
       </li>
     ));
   };
@@ -55,11 +66,7 @@ const DropDown = () => {
 
   const handleSubmit = (e, category) => {
     setInput(e.target.textContent);
-    // setParams((prevParams) => ({
-    //   ...prevParams,
-    //   category: category.slug,
-    // }));
-    setParams({ search: '', category: category.slug });
+    setParams(category);
     setCurrentPage(1);
     setPages([1, 2, 3]);
     setIsOpen(false);
