@@ -10,7 +10,6 @@
   <p align="center">
     A platform helps you land your remote career
     <br />
-    <a href="https://github.com/sunmengyue/remote-jobs/blob/master/README.md"><strong>Explore the docs »</strong></a>
     <br />
     <br />
     <a href="https://remote-optimal.web.app/">View Demo</a>
@@ -120,6 +119,20 @@ const onClickRedirect = (e) => {
   window.history.pushState({}, '', `/jobs/${job.id}`);
   popState();
 };
+```
+
+```js
+const AppliedJobItem = ({ job }) => {
+  return (
+    <div className="job">
+      <Link to={`/jobs/${job.id}`}>
+        <h4 className="title">{job.position}</h4>
+      </Link>
+    </div>
+  );
+};
+
+export default AppliedJobItem;
 ```
 
 ## Acknowledgements
