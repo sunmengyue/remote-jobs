@@ -8,8 +8,6 @@ import SavedJobs from './pages/SavedJobs';
 import AppliedJobs from './pages/AppliedJobs';
 import JobDetails from './pages/JobDetails';
 import Login from './pages/Login';
-import { useAuthState } from 'react-firebase-hooks/auth';
-import { auth } from './firebase';
 import './css/App.css';
 
 const App = () => {
@@ -21,7 +19,6 @@ const App = () => {
   const [input, setInput] = useState('');
   const initialSaves = JSON.parse(localStorage.getItem('jobs')) || [];
   const [savedJobs, setSavedJobs] = useState(initialSaves);
-  const [user] = useAuthState(auth);
 
   // fetch data
   function decode_utf8(s) {
@@ -107,28 +104,27 @@ const App = () => {
         saveToLocal,
       }}
     >
-      {!user ? (
-        <Login />
-      ) : (
-        <>
-          <Route path="/">
-            <Home />
+      <>
+        <Route path="/">
+          <Home />
+        </Route>
+        <Route path="/login">
+          <Login />
+        </Route>
+        <Route path="/jobs/saved">
+          <MyJobsHeader />
+          <SavedJobs />
+        </Route>
+        <Route path="/jobs/applied">
+          <MyJobsHeader />
+          <AppliedJobs />
+        </Route>
+        {jobs.map((job) => (
+          <Route path={`/jobs/${job.id}`} key={job.id}>
+            <JobDetails />
           </Route>
-          <Route path="/jobs/saved">
-            <MyJobsHeader />
-            <SavedJobs />
-          </Route>
-          <Route path="/jobs/applied">
-            <MyJobsHeader />
-            <AppliedJobs />
-          </Route>
-          {jobs.map((job) => (
-            <Route path={`/jobs/${job.id}`} key={job.id}>
-              <JobDetails />
-            </Route>
-          ))}
-        </>
-      )}
+        ))}
+      </>
     </Jobcontext.Provider>
   );
 };
