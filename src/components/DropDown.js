@@ -1,9 +1,11 @@
 import { v4 as uuidv4 } from 'uuid';
-import React, { useState, useEffect, useContext } from 'react';
-import Jobcontext from '../utils/Jobcontext';
+import React, { useState, useEffect } from 'react';
 import '../css/DropDown.css';
 
 const DropDown = () => {
+  const [input, setInput] = useState('');
+  const [params, setParams] = useState('');
+  const [currentPage, setCurrentPate] = useState(1);
   const categories = [
     'software',
     'customer support',
@@ -18,9 +20,9 @@ const DropDown = () => {
     'health',
     'non tech',
   ];
-  const jobData = useContext(Jobcontext);
-  const { params, setParams, setPages, setCurrentPage, setInput, input } =
-    jobData;
+
+  // const { params, setParams, setPages, setCurrentPage, setInput, input } =
+  //   jobData;
 
   const [filteredCategories, setFilteredCategories] = useState([]);
   const [isOpen, setIsOpen] = useState(false);
@@ -45,9 +47,9 @@ const DropDown = () => {
       <li
         key={uuidv4()}
         className="dropdown__list__item"
-        onMouseDown={(e) => {
-          handleSubmit(e, category);
-        }}
+        // onMouseDown={(e) => {
+        //   handleSubmit(e, category);
+        // }}
       >
         {category}
       </li>
@@ -61,14 +63,6 @@ const DropDown = () => {
   };
 
   const closeDropDown = () => {
-    setIsOpen(false);
-  };
-
-  const handleSubmit = (e, category) => {
-    setInput(e.target.textContent);
-    setParams(category);
-    setCurrentPage(1);
-    setPages([1, 2, 3]);
     setIsOpen(false);
   };
 

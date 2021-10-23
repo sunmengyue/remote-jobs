@@ -1,24 +1,10 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import '../css/Job.css';
-import Jobcontext from '../utils/Jobcontext';
 import { v4 as uuidv4 } from 'uuid';
 
 const Job = ({ job }) => {
-  const jobData = useContext(Jobcontext);
-  const { popState } = jobData;
-
-  const onClickRedirect = (e) => {
-    if (e.metaKey || e.ctrlKey) {
-      return;
-    } // if cmd or ctrl, do not run code below, open a new tab
-
-    e.preventDefault();
-    window.history.pushState({}, '', `/jobs/${job.id}`);
-    popState();
-  };
-
   return (
-    <div className="job" onClick={onClickRedirect}>
+    <div className="job">
       <div className="job__content">
         {job.logo ? (
           <img src={`${job.logo}`} alt="logo" className="company__logo" />

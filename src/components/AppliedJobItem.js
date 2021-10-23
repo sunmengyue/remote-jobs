@@ -1,10 +1,8 @@
-import React, { useContext } from 'react';
-import Jobcontext from '../utils/Jobcontext';
-import Link from './Link';
+import React from 'react';
+import { Link } from 'react-router-dom';
 
 const AppliedJobItem = ({ job }) => {
-  const jobData = useContext(Jobcontext);
-  const { deleteSaved } = jobData;
+  // const { deleteSaved } = jobData;
 
   return (
     <div className="job">
@@ -32,9 +30,9 @@ const AppliedJobItem = ({ job }) => {
       </div>
       <div className="job__action">
         <p
-          onClick={() => {
-            deleteSaved(job.id);
-          }}
+        // onClick={() => {
+        //   deleteSaved(job.id);
+        // }}
         >
           ✕
         </p>

@@ -1,5 +1,5 @@
 import React, { useRef, useEffect } from 'react';
-import Link from '../components/Link';
+import { Link } from 'react-router-dom';
 import '../css/MyJobsHeader.css';
 import logo from '../images/remote_optimal_logo.png';
 

@@ -1,0 +1,7 @@
+export const GET_JOBS = 'GET_JOBS';
+export const SET_LOADING = 'SET_LOADING';
+export const JOBS_ERROR = 'JOBS_ERROR';
+export const SEARCHJOBS_BY_KEYWORDS = 'SEARCHJOBS_BY_KEYWORDS';
+export const ADD_JOB_TOSAVE = 'ADD_JOB_TOSAVE';
+export const DELETE_SAVED_JOB = 'DELETE_SAVED_JOB';
+export const MARK_JOB_APPLIED = 'MARK_JOB_APPLIED';
