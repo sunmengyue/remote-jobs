@@ -1,12 +1,9 @@
 import React, { useContext } from 'react';
-import Jobcontext from '../utils/Jobcontext';
-
-import Link from '../components/Link';
+import { Link } from 'react-router-dom';
 import '../css/SavedJobItem.css';
 
 const SavedJobItem = ({ job }) => {
-  const jobData = useContext(Jobcontext);
-  const { markAsApplied, deleteSaved } = jobData;
+  // const { markAsApplied, deleteSaved } = jobData;
 
   return (
     <div className="job">

@@ -4,6 +4,7 @@ import Home from './pages/Home';
 import MyJobsHeader from './components/MyJobsHeader';
 import AppliedJobs from './pages/AppliedJobs';
 import Login from './pages/Login';
+import JobDetails from './pages/JobDetails';
 import { Provider } from 'react-redux';
 import store from './store';
 import './css/App.css';
@@ -40,6 +41,10 @@ const App = () => {
       <Router>
         <Switch>
           <Route exact path="/" render={(props) => <Home {...props} />} />
+          <Route
+            path="/jobs/:id"
+            render={(props) => <JobDetails {...props} />}
+          />
           <Route path="/login" render={(props) => <Login {...props} />} />
           <Route
             path="/saved"
