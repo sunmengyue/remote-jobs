@@ -7,6 +7,7 @@ import MyJobsHeader from './components/MyJobsHeader';
 import SavedJobs from './pages/SavedJobs';
 import AppliedJobs from './pages/AppliedJobs';
 import JobDetails from './pages/JobDetails';
+import './css/App.css';
 
 const App = () => {
   const [jobs, setJobs] = useState([]);

@@ -6,17 +6,18 @@ import '../css/DropDown.css';
 const DropDown = () => {
   const [input, setInput] = useState('');
   const jobData = useContext(jobcontext);
-  const { params, setParams, setPages, setCurrentPage } = jobData;
+  const { setParams, setPages, setCurrentPage } = jobData;
 
   const categories = [
+    'web',
     'software',
+    'dev',
     'customer support',
     'design',
     'marketing',
     'sales',
     'business',
     'data',
-    'devops',
     'hr',
     'teaching',
     'health',
