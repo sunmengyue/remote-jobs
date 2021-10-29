@@ -6,7 +6,7 @@ import '../css/DropDown.css';
 const DropDown = () => {
   const [input, setInput] = useState('');
   const jobData = useContext(jobcontext);
-  const { setParams, setPages, setCurrentPage } = jobData;
+  const { queries, setQueries, setPages, setCurrentPage } = jobData;
 
   const categories = [
     'web',
@@ -29,6 +29,7 @@ const DropDown = () => {
 
   useEffect(() => {
     setFilteredCategories(categories);
+    // eslint-disable-next-line
   }, []);
 
   const onInputChange = (e) => {
@@ -69,7 +70,7 @@ const DropDown = () => {
 
   const handleSubmit = (e, category) => {
     setInput(e.target.textContent);
-    setParams({ tag: category });
+    setQueries({ ...queries, tag: category });
     setCurrentPage(1);
     setPages([1, 2, 3]);
     setIsOpen(false);

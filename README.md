@@ -39,8 +39,6 @@
 
 ![Overview](./wiki/home.png)
 
-![Sign In](./wiki/signin.png)
-
 ![Search](./wiki/search.png)
 
 ![Apply and Save](./wiki/single.png)
@@ -50,9 +48,8 @@
 As a user, you can:
 
 - browse thousands of remote jobs on multiple pages fluently
-- search remote jobs by company name, description, title, benefits, and category
+- search remote jobs by category and keywords
 - read, apply, save, and manage your job of interest
-- log in your account with google
 
 ### Built With
 
@@ -62,9 +59,41 @@ As a user, you can:
 
 ### Implementation Example: Routing
 
-A common issue using react-router to navigate from a page of list of items to that of a single item/ item details is that, when we refresh the item details page, if the item information/data is not independently fetched on this page, we will only get an error of item is undefined. That tells us we need to set our item information as a state and get the item data from the routing provided by the API we use. However, most of the time third-party APIs only provide the route to get the whole list of items without providing one to get item details by item id. Thus, I built my basic routing instead of using React Router in the first version of the project.
+A common issue using react-router to navigate from a page of list of items to that of a single item/ item details is that, when we refresh the item details page, if the item information/data is not independently fetched on this page, we will only get an error of item is undefined. That tells us we need to set our item information as a state and get the item data from the route provided by the API we use. However, most of the time third-party APIs only provide the route to get the whole list of items without providing one to get item details by item id. Thus, I built my basic routing instead of using React Router in the first version of the project.
 
-Route:
+Once the URL changes in the Link component, the Link pops state:
+
+Link:
+
+```js
+const Link = ({ className, to, children }) => {
+  const jobData = useContext(Jobcontext);
+  const { popState } = jobData;
+
+  const onClick = (e) => {
+    e.preventDefault();
+    window.history.pushState({}, '', to);
+    popState();
+  };
+
+  return (
+    <a onClick={onClick} className={className} href={to}>
+      {children}
+    </a>
+  );
+};
+
+export default Link;
+```
+
+```js
+const popState = () => {
+  const navEvent = new PopStateEvent('popstate');
+  window.dispatchEvent(navEvent);
+};
+```
+
+The Route component has an event listener waiting to catch the state, and then render the item details content:
 
 ```js
 const Route = ({ path, children }) => {
@@ -85,41 +114,7 @@ const Route = ({ path, children }) => {
 export default Route;
 ```
 
-Link:
-
-```js
-const Link = ({ className, to, children }) => {
-  const jobData = useContext(Jobcontext);
-  const { popState } = jobData;
-
-  const onClick = (e) => {
-    if (e.metaKey || e.ctrlKey) {
-      return;
-    }
-    e.preventDefault();
-    window.history.pushState({}, '', to);
-    popState();
-  };
-
-  return (
-    <a onClick={onClick} className={className} href={to}>
-      {children}
-    </a>
-  );
-};
-
-export default Link;
-```
-
-To use the route in a component (job component in the case below):
-
-```js
-const onClickRedirect = (e) => {
-  e.preventDefault();
-  window.history.pushState({}, '', `/jobs/${job.id}`);
-  popState();
-};
-```
+An example using Link component:
 
 ```js
 const AppliedJobItem = ({ job }) => {
@@ -133,6 +128,16 @@ const AppliedJobItem = ({ job }) => {
 };
 
 export default AppliedJobItem;
+```
+
+Another example to nevigate without Link:
+
+```js
+const onClickRedirect = (e) => {
+  e.preventDefault();
+  window.history.pushState({}, '', `/jobs/${job.id}`);
+  popState();
+};
 ```
 
 ## Acknowledgements

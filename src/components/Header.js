@@ -6,7 +6,20 @@ import logo from '../images/remote_optimal_logo.png';
 
 const Header = () => {
   const jobData = useContext(Jobcontext);
-  const { jobs } = jobData;
+  const { queries, setQueries, setCurrentPage, setPages, jobs } = jobData;
+
+  const handleParamChange = (e) => {
+    e.preventDefault();
+    setCurrentPage(1);
+    setPages([1, 2, 3]);
+    setQueries({ ...queries, tag: e.target.value });
+  };
+
+  const preventRefresh = (e) => {
+    if (e.keyCode === 13) {
+      e.preventDefault();
+    }
+  };
 
   return (
     <div className="header z-50">
@@ -22,6 +35,17 @@ const Header = () => {
           {jobs.length ? `results: ${jobs.length} jobs` : `Loading...`}
         </div>
         <div className="forms">
+          <form className="form">
+            <input
+              onFocus={(e) => (e.target.value = '')}
+              type="text"
+              placeholder="Career fields"
+              value={queries.tag}
+              name="tags"
+              onChange={handleParamChange}
+              onKeyDown={preventRefresh}
+            />
+          </form>
           <DropDown />
         </div>
       </div>

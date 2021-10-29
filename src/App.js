@@ -14,7 +14,7 @@ const App = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [pages, setPages] = useState([1, 2, 3]);
   const [postsPerPage] = useState(10);
-  const [params, setParams] = useState({});
+  const [queries, setQueries] = useState({});
   const initialSaves = JSON.parse(localStorage.getItem('jobs')) || [];
   const [savedJobs, setSavedJobs] = useState(initialSaves);
   // fetch data
@@ -23,7 +23,7 @@ const App = () => {
     axios
       .get('https://remoteok.io/api/', {
         cancelToken: cancelToken.token,
-        params: { ...params },
+        params: { ...queries },
       })
       .then((res) => {
         // console.log(res.data.slice(1));
@@ -36,7 +36,7 @@ const App = () => {
     return () => {
       cancelToken.cancel();
     };
-  }, [params, currentPage]);
+  }, [queries, currentPage]);
 
   // pagination
   const lastPostIdx = currentPage * postsPerPage;
@@ -79,8 +79,8 @@ const App = () => {
         jobs,
         setJobs,
         popState,
-        params,
-        setParams,
+        queries,
+        setQueries,
         currentPosts,
         postsPerPage,
         currentPage,
