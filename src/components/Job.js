@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import '../css/Job.css';
 import Jobcontext from '../utils/Jobcontext';
+import { v4 as uuidv4 } from 'uuid';
 
 const Job = ({ job }) => {
   const jobData = useContext(Jobcontext);
@@ -19,9 +20,9 @@ const Job = ({ job }) => {
   return (
     <div className="job" onClick={onClickRedirect}>
       <div className="job__content">
-        {job.company_logo_url ? (
+        {job.company_logo ? (
           <img
-            src={`${job.company_logo_url}`}
+            src={`${job.company_logo}`}
             alt="logo"
             className="company__logo"
           />
@@ -30,19 +31,22 @@ const Job = ({ job }) => {
         )}
 
         <div className="job__info">
-          <h4 className="title">{job.title}</h4>
-          <p className="company__name">{job.company_name}</p>
-          <p className="job__tag">{job.candidate_required_location}</p>
-          <p className="job__tag">{job.salary}</p>
+          <h4 className="title">{job.position}</h4>
+          <p className="company__name">{job.company}</p>
+          <p className="job__tag">{job.location}</p>
         </div>
       </div>
       <div className="job__category">
-        <p className="job__tag">{job.category}</p>
-        <p className="job__tag">{job.job_type}</p>
+        {job.tags &&
+          job.tags.map((tag) => (
+            <p className="job__tag" key={uuidv4()}>
+              {tag}
+            </p>
+          ))}
       </div>
       <div className="post__time">
         <i className="fas fa-clock"></i>
-        {job.publication_date.slice(0, 10)}
+        {job.date.slice(0, 10)}
       </div>
     </div>
   );

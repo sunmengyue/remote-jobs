@@ -7,10 +7,8 @@ import logo from '../images/remote_optimal_logo.png';
 const JobDetails = () => {
   const jobdata = useContext(Jobcontext);
   const { jobs, savedJobs, setSavedJobs } = jobdata;
-  const jobId = parseInt(
-    window.location.pathname.substring(
-      window.location.pathname.lastIndexOf('/') + 1,
-    ),
+  const jobId = window.location.pathname.substring(
+    window.location.pathname.lastIndexOf('/') + 1,
   );
   const jobObj = jobs.find((job) => job.id === jobId);
 
@@ -51,7 +49,7 @@ const JobDetails = () => {
           <div className="action">
             <a
               className="apply"
-              href={`${jobObj.url}`}
+              href={`${jobObj.apply_url}`}
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -76,16 +74,16 @@ const JobDetails = () => {
         </div>
         <div className="jobinfo">
           <div className="jobinfo__header">
-            <h2>{jobObj.title}</h2>
-            <p>{jobObj.job_type}</p>
+            <h2>{jobObj.position}</h2>
+
             <div className="post__time">
               <i className="fas fa-clock"></i>
-              <p>{jobObj.publication_date.slice(0, 10)}</p>
+              <p>{jobObj.date.slice(0, 10)}</p>
             </div>
             <div className="logo">
-              {jobObj.company_logo_url ? (
+              {jobObj.company_logo ? (
                 <img
-                  src={`${jobObj.company_logo_url}`}
+                  src={`${jobObj.company_logo}`}
                   alt="logo"
                   className="company__logo"
                 />
@@ -93,10 +91,8 @@ const JobDetails = () => {
                 <i className="fas fa-building fa-3x"></i>
               )}
               <div className="job__companyInfo">
-                <p className="job__companyName"> {jobObj.company_name}</p>
-                <p className="job__companyLocation">
-                  {jobObj.candidate_required_location}
-                </p>
+                <p className="job__companyName"> {jobObj.company}</p>
+                <p className="job__companyLocation">{jobObj.location}</p>
               </div>
             </div>
           </div>

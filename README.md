@@ -10,7 +10,6 @@
   <p align="center">
     A platform helps you land your remote career
     <br />
-    <a href="https://github.com/sunmengyue/remote-jobs/blob/master/README.md"><strong>Explore the docs »</strong></a>
     <br />
     <br />
     <a href="https://remote-optimal.web.app/">View Demo</a>
@@ -26,23 +25,15 @@
         <li><a href="#built-with">Built With</a></li>
       </ul>
     </li>
-    <li>
-      <a href="#getting-started">Getting Started</a>
-      <ul>
-        <li><a href="#prerequisites">Prerequisites</a></li>
-        <li><a href="#installation">Installation</a></li>
-      </ul>
-    </li>
-    <li><a href="#contributing">Contributing</a></li>
     <li><a href="#license">License</a></li>
-    <li><a href="#contact">Contact</a></li>
     <li><a href="#acknowledgements">Acknowledgements</a></li>
+
   </ol>
 </details>
 
 <!-- ABOUT THE PROJECT -->
 
-## About The Project
+### Features Version 1.0 (06/15, 2021)
 
 [click here](https://remote-optimal.web.app/) to see the app demo
 
@@ -69,57 +60,80 @@ As a user, you can:
 - [React Context API](https://reactjs.org/docs/context.html)
 - [Firebase](https://firebase.google.com/)
 
-<!-- GETTING STARTED -->
+### Implementation Example: Routing
 
-## Getting Started
+A common issue using react-router to navigate from a page of list of items to that of a single item/ item details is that, when we refresh the item details page, if the item information/data is not independently fetched on this page, we will only get an error of item is undefined. That tells us we need to set our item information as a state and get the item data from the routing provided by the API we use. However, most of the time third-party APIs only provide the route to get the whole list of items without providing one to get item details by item id. Thus, I built my basic routing instead of using React Router in the first version of the project.
 
-### Prerequisites
+Route:
 
-To clone and run this application, you'll need [Git](https://git-scm.com) and [Node.js](https://nodejs.org/en/download/) (which comes with [npm](http://npmjs.com)) installed on your computer.
+```js
+const Route = ({ path, children }) => {
+  const [currentPath, setCurrentPath] = useState(window.location.pathname);
+  useEffect(() => {
+    const onLocationChange = () => {
+      setCurrentPath(window.location.pathname);
+    };
+    window.addEventListener('popstate', onLocationChange);
+    return () => {
+      window.removeEventListener('popstate', onLocationChange);
+    };
+  }, []);
 
-- npm
-  ```sh
-  npm install npm@latest -g
-  ```
+  return currentPath === path ? children : null;
+};
 
-### Installation
+export default Route;
+```
 
-1. Clone the repo
-   ```sh
-   git clone https://github.com/sunmengyue/remote-jobs.git
-   ```
-2. Install NPM packages
-   ```sh
-   npm install
-   ```
+Link:
 
-<!-- CONTRIBUTING -->
+```js
+const Link = ({ className, to, children }) => {
+  const jobData = useContext(Jobcontext);
+  const { popState } = jobData;
 
-## Contributing
+  const onClick = (e) => {
+    if (e.metaKey || e.ctrlKey) {
+      return;
+    }
+    e.preventDefault();
+    window.history.pushState({}, '', to);
+    popState();
+  };
 
-Contributions are what make the open source community such an amazing place to be learn, inspire, and create. Any contributions you make are **greatly appreciated**.
+  return (
+    <a onClick={onClick} className={className} href={to}>
+      {children}
+    </a>
+  );
+};
 
-1. Fork the Project
-2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the Branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
+export default Link;
+```
 
-<!-- LICENSE -->
+To use the route in a component (job component in the case below):
 
-## License
+```js
+const onClickRedirect = (e) => {
+  e.preventDefault();
+  window.history.pushState({}, '', `/jobs/${job.id}`);
+  popState();
+};
+```
 
-Distributed under the MIT License. See `LICENSE` for more information.
+```js
+const AppliedJobItem = ({ job }) => {
+  return (
+    <div className="job">
+      <Link to={`/jobs/${job.id}`}>
+        <h4 className="title">{job.position}</h4>
+      </Link>
+    </div>
+  );
+};
 
-<!-- CONTACT -->
-
-## Contact
-
-Simon Sun - [@simonmy27](https://www.instagram.com/simonmys27/) - mengyuesun@gmail.com
-
-Project Link: [https://github.com/sunmengyue/remote-jobs](https://github.com/sunmengyue/remote-jobs)
-
-<!-- ACKNOWLEDGEMENTS -->
+export default AppliedJobItem;
+```
 
 ## Acknowledgements
 

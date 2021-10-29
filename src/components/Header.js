@@ -3,11 +3,8 @@ import Jobcontext from '../utils/Jobcontext';
 import DropDown from './DropDown';
 import '../css/Header.css';
 import logo from '../images/remote_optimal_logo.png';
-import { useAuthState } from 'react-firebase-hooks/auth';
-import { auth } from '../firebase';
 
 const Header = () => {
-  const [user] = useAuthState(auth);
   const jobData = useContext(Jobcontext);
   const { params, jobs, setParams, setCurrentPage, setPages } = jobData;
 
@@ -30,15 +27,6 @@ const Header = () => {
   return (
     <div className="header z-50">
       <div className="banner">
-        <div className="header__right">
-          <img
-            src={user?.photoURL}
-            alt={user?.displayName}
-            onClick={() => {
-              auth.signOut();
-            }}
-          />
-        </div>
         <div className="logo">
           <img src={logo} alt="logo" />
           <h1>
@@ -52,10 +40,11 @@ const Header = () => {
         <div className="forms">
           <form className="form">
             <input
+              onFocus={(e) => (e.target.value = '')}
               type="text"
-              placeholder="Title, companies, expertise, or benefits"
-              value={params.search}
-              name="search"
+              placeholder="Career fields, separate with ',' "
+              value={params}
+              name="tags"
               onChange={handleParamChange}
               onKeyDown={preventRefresh}
             />
