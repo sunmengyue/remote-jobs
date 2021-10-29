@@ -68,7 +68,7 @@ const DropDown = () => {
 
   const handleSubmit = (e, category) => {
     setInput(e.target.textContent);
-    setParams({ tags: category });
+    setParams({ tag: category });
     setCurrentPage(1);
     setPages([1, 2, 3]);
     setIsOpen(false);
