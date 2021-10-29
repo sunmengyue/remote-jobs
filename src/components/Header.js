@@ -3,11 +3,8 @@ import Jobcontext from '../utils/Jobcontext';
 import DropDown from './DropDown';
 import '../css/Header.css';
 import logo from '../images/remote_optimal_logo.png';
-import { useAuthState } from 'react-firebase-hooks/auth';
-import { auth } from '../firebase';
 
 const Header = () => {
-  const [user] = useAuthState(auth);
   const jobData = useContext(Jobcontext);
   const { params, setParams, setCurrentPage, setPages, input, setInput } =
     jobData;
@@ -27,7 +24,7 @@ const Header = () => {
   return (
     <div className="header">
       <div className="banner">
-        <div className="header__right">
+        {/* <div className="header__right">
           <img
             src={user?.photoURL}
             alt={user?.displayName}
@@ -35,7 +32,7 @@ const Header = () => {
               auth.signOut();
             }}
           />
-        </div>
+        </div> */}
         <div className="logo">
           <img src={logo} alt="logo" />
           <h1>

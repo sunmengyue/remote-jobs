@@ -1,70 +1,144 @@
-# Getting Started with Create React App
+<!-- PROJECT LOGO -->
+<br />
+<p align="center">
+  <a href="https://github.com/othneildrew/Best-README-Template">
+    <img src="src/images/remote_optimal_logo.png" alt="Logo" width="80" height="80">
+  </a>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+  <h3 align="center">Remotive Optimal</h3>
 
-## Available Scripts
+  <p align="center">
+    A platform helps you land your remote career
+    <br />
+    <br />
+    <br />
+    <a href="https://remote-optimal.web.app/">View Demo</a>
+</p>
 
-In the project directory, you can run:
+<!-- TABLE OF CONTENTS -->
+<details open="open">
+  <summary>Table of Contents</summary>
+  <ol>
+    <li>
+      <a href="#about-the-project">About The Project</a>
+      <ul>
+        <li><a href="#built-with">Built With</a></li>
+      </ul>
+    </li>
+    <li><a href="#license">License</a></li>
+    <li><a href="#acknowledgements">Acknowledgements</a></li>
 
-### `yarn start`
+  </ol>
+</details>
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+<!-- ABOUT THE PROJECT -->
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+### Features Version 1.0 (06/15, 2021)
 
-### `yarn test`
+[click here](https://remote-optimal.web.app/) to see the app demo
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+![Overview](./wiki/home.png)
 
-### `yarn build`
+![Sign In](./wiki/signin.png)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+![Search](./wiki/search.png)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+![Apply and Save](./wiki/single.png)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+![Manage](./wiki/manage.png)
 
-### `yarn eject`
+As a user, you can:
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+- browse thousands of remote jobs on multiple pages fluently
+- search remote jobs by company name, description, title, benefits, and category
+- read, apply, save, and manage your job of interest
+- log in your account with google
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Built With
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+- [React](https://reactjs.org/)
+- [React Context API](https://reactjs.org/docs/context.html)
+- [Firebase](https://firebase.google.com/)
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+### Implementation Example: Routing
 
-## Learn More
+A common issue using react-router to navigate from a page of list of items to that of a single item/ item details is that, when we refresh the item details page, if the item information/data is not independently fetched on this page, we will only get an error of item is undefined. That tells us we need to set our item information as a state and get the item data from the routing provided by the API we use. However, most of the time third-party APIs only provide the route to get the whole list of items without providing one to get item details by item id. Thus, I built my basic routing instead of using React Router in the first version of the project.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Route:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```js
+const Route = ({ path, children }) => {
+  const [currentPath, setCurrentPath] = useState(window.location.pathname);
+  useEffect(() => {
+    const onLocationChange = () => {
+      setCurrentPath(window.location.pathname);
+    };
+    window.addEventListener('popstate', onLocationChange);
+    return () => {
+      window.removeEventListener('popstate', onLocationChange);
+    };
+  }, []);
 
-### Code Splitting
+  return currentPath === path ? children : null;
+};
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+export default Route;
+```
 
-### Analyzing the Bundle Size
+Link:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+```js
+const Link = ({ className, to, children }) => {
+  const jobData = useContext(Jobcontext);
+  const { popState } = jobData;
 
-### Making a Progressive Web App
+  const onClick = (e) => {
+    if (e.metaKey || e.ctrlKey) {
+      return;
+    }
+    e.preventDefault();
+    window.history.pushState({}, '', to);
+    popState();
+  };
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+  return (
+    <a onClick={onClick} className={className} href={to}>
+      {children}
+    </a>
+  );
+};
 
-### Advanced Configuration
+export default Link;
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+To use the route in a component (job component in the case below):
 
-### Deployment
+```js
+const onClickRedirect = (e) => {
+  e.preventDefault();
+  window.history.pushState({}, '', `/jobs/${job.id}`);
+  popState();
+};
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+```js
+const AppliedJobItem = ({ job }) => {
+  return (
+    <div className="job">
+      <Link to={`/jobs/${job.id}`}>
+        <h4 className="title">{job.position}</h4>
+      </Link>
+    </div>
+  );
+};
 
-### `yarn build` fails to minify
+export default AppliedJobItem;
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Acknowledgements
+
+- [Remotive Job API](https://remotive.io/api-documentation)
+- [React](https://reactjs.org/)
+- [Firebase](https://firebase.google.com/)
+- [Font Awesome](https://fontawesome.com)
+- [Marked - a markdown parser](https://github.com/chjj/marked)
