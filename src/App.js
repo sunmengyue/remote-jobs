@@ -13,13 +13,11 @@ const App = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [pages, setPages] = useState([1, 2, 3]);
   const [postsPerPage] = useState(15);
-  const [params, setParams] = useState({});
-  const [input, setInput] = useState('');
+  const [params, setParams] = useState('');
   const initialSaves = JSON.parse(localStorage.getItem('jobs')) || [];
   const [savedJobs, setSavedJobs] = useState(initialSaves);
 
   // fetch data
-
   useEffect(() => {
     const cancelToken = axios.CancelToken.source();
     axios
@@ -28,7 +26,7 @@ const App = () => {
         params: { ...params },
       })
       .then((res) => {
-        console.log(res.data.slice(1));
+        // console.log(res.data.slice(1));
         setJobs(res.data.slice(1));
       })
 
@@ -91,8 +89,6 @@ const App = () => {
         setPages,
         savedJobs,
         setSavedJobs,
-        input,
-        setInput,
         markAsApplied,
         deleteSaved,
         saveToLocal,

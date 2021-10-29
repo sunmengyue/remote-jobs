@@ -10,29 +10,21 @@ const Header = () => {
     jobData;
 
   const handleParamChange = (e) => {
-    // this does not work on form because the e.target is not an input
+    e.preventDefault();
+    setCurrentPage(1);
+    setPages([1, 2, 3]);
+    setParams(e.target.value);
+  };
+
+  const preventRefresh = (e) => {
     if (e.keyCode === 13) {
       e.preventDefault();
-      const value = e.target.value;
-      const param = e.target.name;
-      setCurrentPage(1);
-      setPages([1, 2, 3]);
-      setParams((prevParams) => ({ ...prevParams, [param]: value }));
     }
   };
 
   return (
     <div className="header">
       <div className="banner">
-        {/* <div className="header__right">
-          <img
-            src={user?.photoURL}
-            alt={user?.displayName}
-            onClick={() => {
-              auth.signOut();
-            }}
-          />
-        </div> */}
         <div className="logo">
           <img src={logo} alt="logo" />
           <h1>
@@ -43,14 +35,13 @@ const Header = () => {
         <div className="forms">
           <form className="form">
             <input
+              onFocus={(e) => (e.target.value = '')}
               type="text"
-              placeholder="Title, companies, expertise, or benefits"
-              value={params.search}
-              name="search"
-              onChange={(e) => {
-                setInput(e.target.value);
-              }}
-              onKeyDown={handleParamChange}
+              placeholder="Career fields, separate with ',' "
+              value={params}
+              name="tags"
+              onChange={handleParamChange}
+              onKeyDown={preventRefresh}
             />
           </form>
           <DropDown />

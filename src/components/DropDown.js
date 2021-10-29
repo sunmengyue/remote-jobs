@@ -1,48 +1,74 @@
-import axios from 'axios';
+import { v4 as uuidv4 } from 'uuid';
+import jobcontext from '../utils/Jobcontext';
 import React, { useState, useEffect, useContext } from 'react';
-import Jobcontext from '../utils/Jobcontext';
 import '../css/DropDown.css';
 
 const DropDown = () => {
-  const jobData = useContext(Jobcontext);
-  const { params, setParams, setPages, setCurrentPage, setInput } = jobData;
+  const [input, setInput] = useState('');
+  const jobData = useContext(jobcontext);
+  const { params, setParams, setPages, setCurrentPage } = jobData;
 
-  const [categories, setCategories] = useState([]);
+  const categories = [
+    'software',
+    'customer support',
+    'design',
+    'marketing',
+    'sales',
+    'business',
+    'data',
+    'devops',
+    'hr',
+    'teaching',
+    'health',
+    'non tech',
+  ];
+
+  const [filteredCategories, setFilteredCategories] = useState([]);
   const [isOpen, setIsOpen] = useState(false);
 
-  const onInputChange = (e) => {
-    const newCategories = categories.filter((cat) =>
-      cat.slug.toLowerCase().includes(e.target.value.toLowerCase()),
-    );
-    setCategories(newCategories);
-  };
-
   useEffect(() => {
-    axios.get('https://remotive.io/api/remote-jobs/categories').then((res) => {
-      setCategories(res.data.jobs);
-    });
+    setFilteredCategories(categories);
   }, []);
 
+  const onInputChange = (e) => {
+    console.log(e.target.value);
+    setInput(e.target.value);
+    if (!e.target.value) {
+      setFilteredCategories(categories);
+    }
+    const newCategories = categories.filter((cat) =>
+      cat.toLowerCase().includes(e.target.value.toLowerCase()),
+    );
+    setFilteredCategories(newCategories);
+  };
+
   const listCategories = () => {
-    return categories.map((category) => (
+    return filteredCategories.map((category) => (
       <li
-        key={category.id}
+        key={uuidv4()}
         className="dropdown__list__item"
-        onClick={(e) => {
+        onMouseDown={(e) => {
           handleSubmit(e, category);
         }}
       >
-        {category.name}
+        {category}
       </li>
     ));
   };
 
+  const openDropDown = () => {
+    setInput('');
+    setIsOpen(true);
+    setFilteredCategories(categories);
+  };
+
+  const closeDropDown = () => {
+    setIsOpen(false);
+  };
+
   const handleSubmit = (e, category) => {
     setInput(e.target.textContent);
-    setParams((prevParams) => ({
-      ...prevParams,
-      category: category.slug,
-    }));
+    setParams({ tags: category });
     setCurrentPage(1);
     setPages([1, 2, 3]);
     setIsOpen(false);
@@ -52,19 +78,15 @@ const DropDown = () => {
     <div className="form">
       <div className="field">
         <input
-          onClick={() => {
-            setIsOpen(!isOpen);
-          }}
-          // onBlur={() => {
-          //   setIsOpen(false);
-          // }}
+          onMouseDown={openDropDown}
+          onBlur={closeDropDown}
           type="text"
           name="category"
           onChange={(e) => {
             onInputChange(e);
           }}
-          placeholder="job categories: click to see and hide"
-          value={params.category}
+          placeholder="job categories"
+          value={input}
         />
 
         {!isOpen ? (
