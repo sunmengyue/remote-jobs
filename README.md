@@ -12,7 +12,7 @@
     <br />
     <br />
     <br />
-    <a href="https://remote-optimal.web.app/">View Demo</a>
+    <a href="https://remote-optimal.herokuapp.com/">View Demo</a>
 </p>
 
 <!-- TABLE OF CONTENTS -->
@@ -25,7 +25,6 @@
         <li><a href="#built-with">Built With</a></li>
       </ul>
     </li>
-    <li><a href="#license">License</a></li>
     <li><a href="#acknowledgements">Acknowledgements</a></li>
 
   </ol>
@@ -35,7 +34,7 @@
 
 ### Features Version 1.0 (06/15, 2021)
 
-[click here](https://remote-optimal.web.app/) to see the app demo
+[click here](https://remote-optimal.herokuapp.com/) to see the app demo
 
 ![Overview](./wiki/home.png)
 
@@ -55,7 +54,6 @@ As a user, you can:
 
 - [React](https://reactjs.org/)
 - [React Context API](https://reactjs.org/docs/context.html)
-- [Firebase](https://firebase.google.com/)
 
 ### Implementation Example: Routing
 
@@ -144,6 +142,4 @@ const onClickRedirect = (e) => {
 
 - [Remotive Job API](https://remotive.io/api-documentation)
 - [React](https://reactjs.org/)
-- [Firebase](https://firebase.google.com/)
 - [Font Awesome](https://fontawesome.com)
-- [Marked - a markdown parser](https://github.com/chjj/marked)
