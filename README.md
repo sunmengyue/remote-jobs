@@ -140,6 +140,6 @@ const onClickRedirect = (e) => {
 
 ## Acknowledgements
 
-- [Remotive Job API](https://remotive.io/api-documentation)
+- [remoteok API](https://remoteok.io/api)
 - [React](https://reactjs.org/)
 - [Font Awesome](https://fontawesome.com)
