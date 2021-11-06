@@ -1,7 +1,9 @@
 import { combineReducers } from 'redux';
-import { jobReducer, jobDetailsReducer } from './jobReducer';
+import { jobListReducer, jobDetailsReducer } from './jobReducer';
+import savedJobReducer from './savedJobsReducer';
 
 export default combineReducers({
-  job: jobReducer,
+  jobList: jobListReducer,
   jobDetails: jobDetailsReducer,
+  savedJobList: savedJobReducer,
 });

@@ -8,9 +8,9 @@ const MyJobsHeader = () => {
   const appliedRef = useRef();
 
   useEffect(() => {
-    if (window.location.pathname === '/jobs/saved') {
+    if (window.location.pathname === '/savedJobs') {
       savedRef.current.children[0].style.color = '#0d6efd';
-    } else if (window.location.pathname === '/jobs/applied') {
+    } else if (window.location.pathname === '/appliedJobs') {
       appliedRef.current.children[0].style.color = '#0d6efd';
     }
   }, []);
@@ -31,10 +31,10 @@ const MyJobsHeader = () => {
       <nav>
         <ul className="saved__list">
           <li className="list__item" ref={savedRef}>
-            <Link to="/jobs/saved">Saved</Link>
+            <Link to="/savedJobs">Saved</Link>
           </li>
           <li className="list__item" ref={appliedRef}>
-            <Link to="/jobs/applied">Applied</Link>
+            <Link to="/appliedJobs">Applied</Link>
           </li>
         </ul>
       </nav>

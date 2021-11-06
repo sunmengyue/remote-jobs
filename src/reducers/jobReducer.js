@@ -1,10 +1,12 @@
 import {
-  GET_JOBS,
-  GET_JOB_DETAILS,
-  SET_LOADING,
-  JOBS_ERROR,
-  JOB_ERROR,
+  GET_JOBS_REQUEST,
+  GET_JOBS_SUCCESS,
+  GET_JOBS_FAIL,
+  GET_JOB_DETAILS_REQUEST,
+  GET_JOB_DETAILS_SUCCESS,
+  GET_JOB_DETAILS_FAIL,
 } from '../actions/types';
+
 const jobsInitialState = {
   jobs: [],
   loading: false,
@@ -17,14 +19,13 @@ const jobInitialState = {
   error: null,
 };
 
-export const jobReducer = (state = jobsInitialState, action) => {
+export const jobListReducer = (state = jobsInitialState, action) => {
   switch (action.type) {
-    case GET_JOBS:
-      return { ...state, jobs: action.payload, loading: false };
-    case SET_LOADING:
+    case GET_JOBS_REQUEST:
       return { ...state, loading: true };
-    case JOBS_ERROR:
-      console.error(action.payload);
+    case GET_JOBS_SUCCESS:
+      return { ...state, jobs: action.payload, loading: false };
+    case GET_JOBS_FAIL:
       return { ...state, error: action.payload };
     default:
       return state;
@@ -33,11 +34,11 @@ export const jobReducer = (state = jobsInitialState, action) => {
 
 export const jobDetailsReducer = (state = jobInitialState, action) => {
   switch (action.type) {
-    case GET_JOB_DETAILS:
-      return { ...state, job: action.payload, loading: false };
-    case SET_LOADING:
+    case GET_JOB_DETAILS_REQUEST:
       return { ...state, loading: true };
-    case JOB_ERROR:
+    case GET_JOB_DETAILS_SUCCESS:
+      return { ...state, job: action.payload, loading: false };
+    case GET_JOB_DETAILS_FAIL:
       return { ...state, error: action.payload };
     default:
       return state;

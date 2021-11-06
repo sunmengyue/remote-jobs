@@ -1,11 +1,13 @@
-import React, { useContext } from 'react';
+import React, { useEffect } from 'react';
 import { v4 as uuidv4 } from 'uuid';
-import Jobcontext from '../utils/Jobcontext';
+import { connect } from 'react-redux';
+import { getSavedJobs } from '../actions/jobActions';
 import SavedJobItem from '../components/SavedJobItem';
 
-const SavedJobs = () => {
-  const jobData = useContext(Jobcontext);
-  const { savedJobs } = jobData;
+const SavedJobs = ({ savedJobList: { savedJobs, loading }, getSavedJobs }) => {
+  useEffect(() => {
+    getSavedJobs();
+  }, []);
 
   const listSavedJobs = () => {
     if (savedJobs.length > 0) {
@@ -28,4 +30,10 @@ const SavedJobs = () => {
   return <div className="page">{listSavedJobs()}</div>;
 };
 
-export default SavedJobs;
+const mapStateToProps = (state) => {
+  return {
+    savedJobList: state.savedJobList,
+  };
+};
+
+export default connect(mapStateToProps, { getSavedJobs })(SavedJobs);

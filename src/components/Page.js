@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import '../css/Page.css';
 
-const Page = ({ job: { jobs, loading } }) => {
+const Page = ({ jobList: { jobs, loading } }) => {
   // const { pages, setPages, jobs, setCurrentPage, postsPerPage, currentPage } =
   //   jobData;
   // const lastPage = Math.ceil(jobs.length / postsPerPage);
@@ -79,7 +79,7 @@ const Page = ({ job: { jobs, loading } }) => {
 };
 
 const mapStateToProps = (state) => ({
-  job: state.job,
+  jobList: state.jobList,
 });
 
 export default connect(mapStateToProps)(Page);

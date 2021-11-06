@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import '../css/Header.css';
 import logo from '../images/remote_optimal_logo.png';
 
-const Header = ({ job: { jobs, loading } }) => {
+const Header = ({ jobList: { jobs, loading } }) => {
   // const handleParamChange = (e) => {
   //   e.preventDefault();
   //   setCurrentPage(1);
@@ -55,7 +55,7 @@ const Header = ({ job: { jobs, loading } }) => {
 
 const mapStateToProps = (state) => {
   return {
-    job: state.job,
+    jobList: state.jobList,
   };
 };
 

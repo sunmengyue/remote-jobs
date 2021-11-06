@@ -40,16 +40,16 @@ const SavedJobItem = ({ job }) => {
         </a>
         <button
           className="job__step job__step__second"
-          onClick={() => {
-            markAsApplied(job.id);
-          }}
+          // onClick={() => {
+          //   markAsApplied(job.id);
+          // }}
         >
           Mark as applied
         </button>
         <p
-          onClick={() => {
-            deleteSaved(job.id);
-          }}
+        // onClick={() => {
+        //   deleteSaved(job.id);
+        // }}
         >
           ✕
         </p>
