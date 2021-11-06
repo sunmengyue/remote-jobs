@@ -1,5 +1,5 @@
 export const GET_JOBS = 'GET_JOBS';
-export const GET_JOB = 'GET_JOB';
+export const GET_JOB_DETAILS = 'GET_JOB_DETAILS';
 export const SET_LOADING = 'SET_LOADING';
 export const JOBS_ERROR = 'JOBS_ERROR';
 export const JOB_ERROR = 'JOB_ERROR';

@@ -1,6 +1,6 @@
 import {
   GET_JOBS,
-  GET_JOB,
+  GET_JOB_DETAILS,
   SET_LOADING,
   JOBS_ERROR,
   JOB_ERROR,
@@ -33,7 +33,7 @@ export const jobReducer = (state = jobsInitialState, action) => {
 
 export const jobDetailsReducer = (state = jobInitialState, action) => {
   switch (action.type) {
-    case GET_JOB:
+    case GET_JOB_DETAILS:
       return { ...state, job: action.payload, loading: false };
     case SET_LOADING:
       return { ...state, loading: true };

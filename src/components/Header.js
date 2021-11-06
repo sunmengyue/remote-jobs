@@ -32,7 +32,7 @@ const Header = ({ job: { jobs, loading } }) => {
         </div>
         <p>You decide where to work and live</p>
         <div className="search__results">
-          {/* {jobs.length ? `results: ${jobs.length} jobs` : `Loading...`} */}
+          {jobs.length ? `results: ${jobs.length} jobs` : `Loading...`}
         </div>
         <div className="forms">
           <form className="form">

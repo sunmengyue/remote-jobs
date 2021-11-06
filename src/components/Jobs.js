@@ -10,12 +10,12 @@ const Jobs = ({ job: { jobs, loading }, getJobs }) => {
     getJobs();
   }, []);
 
-  const listJobs = () =>
-    jobs.slice(1).map((job) => <Job job={job} key={job.id} />);
-
-  if (loading || jobs === []) {
-    return <h1>Loading...</h1>;
-  }
+  const listJobs = () => {
+    // if (loading || jobs === []) {
+    //   return <h1>Loading...</h1>;
+    // }
+    return jobs.slice(1).map((job) => <Job job={job} key={job.id} />);
+  };
 
   return (
     <div className="jobs">

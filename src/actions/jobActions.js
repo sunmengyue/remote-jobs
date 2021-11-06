@@ -1,13 +1,18 @@
-import { GET_JOBS, SET_LOADING, JOBS_ERROR, GET_JOB, JOB_ERROR } from './types';
+import {
+  GET_JOBS,
+  SET_LOADING,
+  JOBS_ERROR,
+  GET_JOB_DETAILS,
+  JOB_ERROR,
+} from './types';
+import jobs from '../apis/jobs';
 import { dispatch } from 'redux-thunk';
-import axios from 'axios';
 
 // Get jobs from server
 export const getJobs = () => async (dispatch) => {
   try {
     setLoading();
-    const { data } = await axios('http://localhost:5000/jobs/');
-
+    const { data } = await jobs.get('/jobs');
     dispatch({
       type: GET_JOBS,
       payload: data,
@@ -15,7 +20,7 @@ export const getJobs = () => async (dispatch) => {
   } catch (error) {
     dispatch({
       type: JOBS_ERROR,
-      payload: error.response.data,
+      payload: error.response,
     });
   }
 };
@@ -23,9 +28,9 @@ export const getJobs = () => async (dispatch) => {
 export const getJobDetails = (id) => async (dispatch) => {
   try {
     setLoading();
-    const { data } = await axios('http://localhost:5000/jobs/:id');
+    const { data } = await jobs.get(`/jobs/${id}`);
     dispatch({
-      type: GET_JOB,
+      type: GET_JOB_DETAILS,
       payload: data,
     });
   } catch (error) {
