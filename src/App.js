@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import jobsApi from './apis/jobs';
 import axios from 'axios';
 import Route from './components/Route';
 import Jobcontext from './utils/Jobcontext';
@@ -20,8 +21,8 @@ const App = () => {
   // fetch data
   useEffect(() => {
     const cancelToken = axios.CancelToken.source();
-    axios
-      .get('https://remoteok.io/api/', {
+    jobsApi
+      .get('/jobs', {
         cancelToken: cancelToken.token,
         params: { ...queries },
       })
