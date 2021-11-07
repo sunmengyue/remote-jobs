@@ -2117,5 +2117,67 @@
       "apply_url": "https://remoteOK.com/remote-jobs/106832-remote-go-developer-confio-gmbh"
     }
   ],
-  "savedJobs": []
+  "savedJobs": [
+    {
+      "slug": "106948-remote-ios-developer-flightradar24",
+      "id": "106948",
+      "epoch": "1635867870",
+      "date": "2021-11-02T15:44:30+00:00",
+      "company": "Flightradar24",
+      "company_logo": "https://remoteok.com/assets/img/jobs/deca38190f4ff2527eec5251ffe4d6b71635868036.jpg",
+      "position": "iOS Developer",
+      "tags": [
+        "dev",
+        "ios",
+        "swift",
+        "digital nomad",
+        "ios"
+      ],
+      "logo": "https://remoteok.com/assets/img/jobs/deca38190f4ff2527eec5251ffe4d6b71635868036.jpg",
+      "description": "We are looking for a talented iOS developer to join the team and help improve the worldâs most popular flight-tracking app. You will play an important role in our app development team, implementing new features, improving performance and building beautiful interfaces. Above all, your work will impact the way millions of users experience Flightradar24.\n### What youâll do\n* Collaborate with a small team of developers, designers, and product owners to find end-to-end solutions to important problems and features\n* Contribute to the continuous work of refactoring and modernizing our app and developing and maintaining a high-quality codebase\n* Deliver modern, testable, and maintainable code adhering to iOS development best practices\n* Participate in knowledge sharing and team work with the other developers in your team\n### Who you are\n* You have at least 4 years of professional iOS app development experience, preferably on app(s) with a large user base\n* You have experience working with Swift and preferably also Objective C\n* You care about quality and you know what it means to ship high-quality code\n* You have experience with writing automated tests (unit tests, UI tests, etc.)\n* You have experience with refactoring and modernizing an app, e.g. with regards to modernizing architecture, testability, patterns, etc.\n* You have experience interacting with Firebase APIs, Maps APIs, or other external API services\n* You have strong written and spoken English\n\n*Note that this is a fully remote position, but we would like you to be located within a 3-hour time difference from Central European Time (CET/CEST) to align your working hours with the rest of the team.*\n### About Flightradar24\nWith over 2 million daily users, Flightradar24 is the worldâs most popular flight tracking service and our apps regularly top the App Store and Google Play charts. We also offer a wide range of commercial services and customers include many of the largest names in aviation.\nWe're constantly adding new services and improving existing products. To help us meet those challenges, we're looking for creative, collaborative and tech-savvy applicants to join us.",
+      "location": "CET/CEST +/â 3 h",
+      "original": true,
+      "url": "https://remoteOK.com/remote-jobs/106948-remote-ios-developer-flightradar24",
+      "apply_url": "https://remoteOK.com/remote-jobs/106948-remote-ios-developer-flightradar24",
+      "isApplied": true
+    },
+    {
+      "slug": "106954-remote-senior-manager-digital-partnerships-the-hub-project",
+      "id": "106954",
+      "epoch": "1635872403",
+      "date": "2021-11-02T17:00:03+00:00",
+      "company": "The Hub Project",
+      "company_logo": "",
+      "position": "Senior Manager Digital Partnerships",
+      "tags": [
+        "exec",
+        "senior"
+      ],
+      "description": "Reports to: Director, Digital Partnerships\nLocation: Washington, DC (Remote through 2021)\nStatus:Â  Full-time, exempt, temporary staff (September, 2021 through December, 2022)\nSalary Range: $70,000 to $82,000\n\nThe Hub Project is looking for a Senior Manager of Digital Partnerships to help expand the reach of our campaigns to advocate for a fairer and more just economy and democracy. This role will require innovation and ingenuity as we continue to pioneer an emerging field within political digital communicationsâleveraging relationships with content creators and storytellers to reach target audiences via messengers whom they already trust.\n\nThis work includes managing partnerships with individuals and organizations inside and outside the progressive sphere, including but not limited to developing social media (micro and macro) influencers programs, forging partnerships with brands and celebrities, engaging storytellers and content creators, and establishing other potential partnerships.\n\nThis role requires close collaboration across our digital department, including with our digital content, creative, and paid media teams. You will also work closely with counterparts on our policy, research, communication, and campaign teams.\n\nBenefits\nComprehensive benefits package that includes employer-paid health, dental, and vision insurance, 3% employer match on 401k contributions, pre-tax transportation benefits, and paid holidays, vacation, sick, and volunteer time off.\n\n\nCOVID-19 Safety Considerations\nWe are currently working remotely due to COVID-19. However, this position is based in Washington, DC and candidates will be expected to relocate to work in person when determined by the project. (Safety remains our top priority and we continue to follow CDC guidance.)\n\nHow to apply\nTo begin the application process, click \"Apply For This Job.\" This announcement will remain posted until the position is filled. Please note that only those individuals whose qualifications match the current needs of this position will be considered applicants and will receive responses from The Hub. Thank you for your interest.\n\nNew Venture Fund Careers\nThe Hub is a project of the New Venture Fund, a 501(c)(3) public charity that incubates new and innovative public-interest projects and grant-making programs. The New Venture Fund is committed to attracting, developing and retaining exceptional people, and to creating a work environment that is dynamic, rewarding and enables each of us to realize our potential. The New Venture Fundâs work environment is safe and open to all employees and partners, respecting the full spectrum of race, color, religious creed, sex, gender identity, sexual orientation, national origin, political affiliation, ancestry, age, disability, genetic information, veteran status, and all other classifications protected by law in the locality and/or state in which you are working.",
+      "location": "Washington, D.C.",
+      "url": "https://remoteOK.com/remote-jobs/106954-remote-senior-manager-digital-partnerships-the-hub-project",
+      "apply_url": "https://remoteOK.com/remote-jobs/106954-remote-senior-manager-digital-partnerships-the-hub-project",
+      "isApplied": true
+    },
+    {
+      "slug": "106946-remote-sales-development-representative-safetywing",
+      "id": "106946",
+      "epoch": "1635864015",
+      "date": "2021-11-02T14:40:15+00:00",
+      "company": "SafetyWing",
+      "company_logo": "https://remoteok.com/assets/img/jobs/a038306aa3ad3cb42eaec4000149d8151635864015.png",
+      "position": "Sales Development Representative",
+      "tags": [
+        "sales development",
+        "sales"
+      ],
+      "logo": "https://remoteok.com/assets/img/jobs/a038306aa3ad3cb42eaec4000149d8151635864015.png",
+      "description": "ð **About SafetyWing**\n\nSafetyWing is building a global social safety net, including health and retirement for remote workers worldwide, as a replacement for national welfare systems. If we succeed, we believe this will help ensure freedom and equal opportunity for everyone, and is one of the more important tasks of our time that no one else is working on.\n\nHeadquartered in San Francisco, we are a fully distributed team of 42 stretching across 10 timezones (Finland to California). We consider ourselves remote work evangelistsâ even writing a book about it. Weâve recently raised $12M Series A after a $3.4M seed round in 2019, and we are growing quickly. \n\nð©âð» **About this Role**\n\nWeâre looking for curious and ambitious Sales Development Representatives who are motivated to grow their career in sales at a fast moving startup. You will identify prospects, engage in authentic conversations, build strong relationships, and set up demos for our team of Account Executives. \n\nYouâll have the opportunity to be close to the ground floor with a small team selling a new but thriving product, Remote Health, which is built for businesses with remote workforces. \n\nð©  **What youâll do**\n\n- Design outreach in a way that will delight our target audience \n- Drive SafetyWingâs revenue through email outreach (we donât do cold calls!)\n- Answer inbound emails and schedule call appointments\n- Creatively problem-solve in a fast paced environment\n- Ideate, test and iterate on new ways to reach our target markets\n- Attend conferences and webinars to start authentic conversations with prospects\n- Work closely with the sales and marketing teams on projects that are in support of the team as a whole\n\nð§ª**Qualifications**\n\n- Proficient in Google Apps and CRM tools\n- Experience in a fast-paced startup environment\n- Excellent written and verbal skills\n- An entrepreneurial spirit who creatively solves problems and works independently\n\nð**We like to work with people who**\n\n- Want to help build a global social safety net on the Internet\n- Think for themselves instead of copying others\n- Are willing to try new things, even with the risk of failure\n- Are intellectually curious and open to new ideas\n- Are creative and bold in the face of any problems\n- Have strong integrity and do the right thing\n\nð§ **What we offer**\n\n- Fully remote work - work from anywhere on the globe\n- Competitive salary with uncapped commission\n- Health insurance, laptop, and a yearly team gathering (previous gatherings were in Slovenia and Norway. Next up: Mexico ðââï¸)\n- Flexible hours and vacation policy (Office hours 8-11am PST)\n\nFind out more about us and our products at www.safetywing.com\n\nWe are looking forward to hearing from you!\n\n",
+      "location": "Worldwide",
+      "original": true,
+      "url": "https://remoteOK.com/remote-jobs/106946-remote-sales-development-representative-safetywing",
+      "apply_url": "https://remoteOK.com/remote-jobs/106946-remote-sales-development-representative-safetywing",
+      "isApplied": true
+    }
+  ]
 }
