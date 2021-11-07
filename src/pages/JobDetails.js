@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { getJobDetails } from '../actions/jobActions';
+import { getJobDetails, saveJob, unSaveJob } from '../actions/jobActions';
 import '../css/JobDetails.css';
 import logo from '../images/remote_optimal_logo.png';
 
@@ -10,13 +10,12 @@ const JobDetails = ({
   jobDetails: { job, loading },
   savedJobList: { savedJobs },
   getJobDetails,
+  saveJob,
+  unSaveJob,
 }) => {
   useEffect(() => {
-    console.log('getting job detail data');
     getJobDetails(match.params.id);
   }, [match]);
-
-  console.log(job);
 
   // const saveJob = (id) => {
   //   if (!savedJobs.find((job) => job.id === id)) {
@@ -28,6 +27,14 @@ const JobDetails = ({
   //     });
   //   }
   // };
+
+  const toggleSave = () => {
+    if (!savedJobs.find((savedJob) => savedJob.id === job.id)) {
+      saveJob({ ...job, isApplied: false });
+    } else {
+      unSaveJob(job.id);
+    }
+  };
 
   return (
     <div className="page">
@@ -64,9 +71,7 @@ const JobDetails = ({
             <button
               className="save"
               to="/savedJobs"
-              // onClick={() => {
-              //   saveJob(jobDetails.job.id);
-              // }}
+              onClick={toggleSave}
               style={
                 savedJobs.find((savedJob) => savedJob.id === job.id)
                   ? { color: '#de3163' }
@@ -120,4 +125,6 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps, { getJobDetails })(JobDetails);
+export default connect(mapStateToProps, { getJobDetails, saveJob, unSaveJob })(
+  JobDetails,
+);

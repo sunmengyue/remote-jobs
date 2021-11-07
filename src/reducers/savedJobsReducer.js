@@ -5,6 +5,9 @@ import {
   GET_SAVED_JOBS_REQUEST,
   GET_SAVED_JOBS_SUCCESS,
   GET_SAVED_JOBS_FAIL,
+  UNSAVE_JOB_REQUEST,
+  UNSAVE_JOB_SUCCESS,
+  UNSAVE_JOB_FAIL,
 } from '../actions/types';
 
 const savedJobInitialState = {
@@ -30,6 +33,18 @@ export default (state = savedJobInitialState, action) => {
     case GET_SAVED_JOBS_SUCCESS:
       return { ...state, savedJobs: action.payload, loading: false };
     case GET_SAVED_JOBS_FAIL:
+      return { ...state, error: action.payload };
+    case UNSAVE_JOB_REQUEST:
+      return { ...state, loading: true };
+    case UNSAVE_JOB_SUCCESS:
+      return {
+        ...state,
+        savedJobs: state.savedJobs.filter(
+          (savedJob) => savedJob.id !== action.payload,
+        ),
+        loading: false,
+      };
+    case UNSAVE_JOB_FAIL:
       return { ...state, error: action.payload };
     default:
       return state;

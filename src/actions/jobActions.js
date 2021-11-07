@@ -11,6 +11,9 @@ import {
   GET_SAVED_JOBS_REQUEST,
   GET_SAVED_JOBS_SUCCESS,
   GET_SAVED_JOBS_FAIL,
+  UNSAVE_JOB_REQUEST,
+  UNSAVE_JOB_SUCCESS,
+  UNSAVE_JOB_FAIL,
 } from './types';
 import jobs from '../apis/jobs';
 
@@ -85,6 +88,23 @@ export const saveJob = (job) => async (dispatch) => {
   } catch (error) {
     dispatch({
       type: SAVE_JOB_FAIL,
+      payload:
+        error.response && error.response.data.message
+          ? error.response.data.message
+          : error.message,
+    });
+  }
+};
+
+// unsave a job
+export const unSaveJob = (id) => async (dispatch) => {
+  try {
+    dispatch({ type: UNSAVE_JOB_REQUEST });
+    const { data } = await jobs.delete(`/savedJobs/${id}`);
+    dispatch({ type: UNSAVE_JOB_SUCCESS, payload: id });
+  } catch (error) {
+    dispatch({
+      type: UNSAVE_JOB_FAIL,
       payload:
         error.response && error.response.data.message
           ? error.response.data.message
