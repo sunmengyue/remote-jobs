@@ -12,7 +12,7 @@ const Header = () => {
     e.preventDefault();
     setCurrentPage(1);
     setPages([1, 2, 3]);
-    setQueries({ ...queries, tag: e.target.value });
+    setQueries({ ...queries, q: e.target.value });
   };
 
   const preventRefresh = (e) => {

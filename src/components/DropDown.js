@@ -10,17 +10,14 @@ const DropDown = () => {
 
   const categories = [
     'web',
-    'software',
     'dev',
     'customer support',
     'design',
     'marketing',
-    'sales',
     'business',
     'data',
-    'hr',
     'teaching',
-    'health',
+    'medical',
     'non tech',
   ];
 
@@ -70,7 +67,7 @@ const DropDown = () => {
 
   const handleSubmit = (e, category) => {
     setInput(e.target.textContent);
-    setQueries({ ...queries, tag: category });
+    setQueries({ ...queries, q: category });
     setCurrentPage(1);
     setPages([1, 2, 3]);
     setIsOpen(false);
